@@ -1,0 +1,46 @@
+Processors/NetworkingHelpers.java
+ Processors.NetworkingHelpers
+ Processors.ProgressRequestBody
+ Processors.ProgressRequestBody$Listener
+ Processors.ProgressRequestBody$ProgressStream
+ Processors.TLSSocketFactory
+Processors/ThemeHelpers.java
+ Processors.ThemeHelpers
+com/snapcommute/facetec_flutter_plugin_demo/BuildConfig.java
+ com.snapcommute.facetec_flutter_plugin_demo.BuildConfig
+Processors/Config.java
+ Processors.Config
+Processors/PhotoIDMatchProcessor.java
+ Processors.PhotoIDMatchProcessor
+ Processors.PhotoIDMatchProcessor$1
+ Processors.PhotoIDMatchProcessor$2
+ Processors.PhotoIDMatchProcessor$3
+ Processors.PhotoIDMatchProcessor$4
+Processors/PhotoIDScanProcessor.java
+ Processors.PhotoIDScanProcessor
+ Processors.PhotoIDScanProcessor$1
+ Processors.PhotoIDScanProcessor$2
+Processors/LivenessCheckProcessor.java
+ Processors.LivenessCheckProcessor
+ Processors.LivenessCheckProcessor$1
+ Processors.LivenessCheckProcessor$2
+Processors/Processor.java
+ Processors.Processor
+com/snapcommute/facetec_flutter_plugin_demo/FacetecFlutterPluginDemoPlugin.java
+ com.snapcommute.facetec_flutter_plugin_demo.FacetecFlutterPluginDemoPlugin
+ com.snapcommute.facetec_flutter_plugin_demo.FacetecFlutterPluginDemoPlugin$1
+ com.snapcommute.facetec_flutter_plugin_demo.FacetecFlutterPluginDemoPlugin$2
+ com.snapcommute.facetec_flutter_plugin_demo.FacetecFlutterPluginDemoPlugin$3
+ com.snapcommute.facetec_flutter_plugin_demo.FacetecFlutterPluginDemoPlugin$3$1
+ com.snapcommute.facetec_flutter_plugin_demo.FacetecFlutterPluginDemoPlugin$4
+ com.snapcommute.facetec_flutter_plugin_demo.FacetecFlutterPluginDemoPlugin$4$1
+ com.snapcommute.facetec_flutter_plugin_demo.FacetecFlutterPluginDemoPlugin$5
+ com.snapcommute.facetec_flutter_plugin_demo.FacetecFlutterPluginDemoPlugin$5$1
+ com.snapcommute.facetec_flutter_plugin_demo.FacetecFlutterPluginDemoPlugin$6
+ com.snapcommute.facetec_flutter_plugin_demo.FacetecFlutterPluginDemoPlugin$7
+ com.snapcommute.facetec_flutter_plugin_demo.FacetecFlutterPluginDemoPlugin$8
+ com.snapcommute.facetec_flutter_plugin_demo.FacetecFlutterPluginDemoPlugin$MethodResultWrapper
+ com.snapcommute.facetec_flutter_plugin_demo.FacetecFlutterPluginDemoPlugin$MethodResultWrapper$1
+ com.snapcommute.facetec_flutter_plugin_demo.FacetecFlutterPluginDemoPlugin$MethodResultWrapper$2
+ com.snapcommute.facetec_flutter_plugin_demo.FacetecFlutterPluginDemoPlugin$MethodResultWrapper$3
+ com.snapcommute.facetec_flutter_plugin_demo.FacetecFlutterPluginDemoPlugin$SessionTokenCallback

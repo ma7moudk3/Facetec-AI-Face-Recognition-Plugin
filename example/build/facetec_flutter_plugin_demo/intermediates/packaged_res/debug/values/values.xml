@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <item name="grey" type="color">#808080</item>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <string name="app_name" translatable="false">FaceTec SDK</string>
+    <string name="audit_trail">View Audit Trail</string>
+    <string name="auth_simple">Authenticate User</string>
+    <string name="design_showcase">Design Showcase</string>
+    <string name="enroll_simple">Enroll User</string>
+    <string name="identity_check">Match Face to ID</string>
+    <string name="identity_scan_only">Scan &amp; OCR ID</string>
+    <string name="liveness_check">3D Liveness Check</string>
+    <string name="session_review">View Session Result</string>
+    <string name="transition_loading_text">Network Connection Slow…</string>
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+    <item name="android:windowBackground">@drawable/splash_screen</item>
+    <item name="android:splitMotionEvents">false</item>
+    <item name="android:windowEnableSplitTouch">false</item>
+</style>
+</resources>

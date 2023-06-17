@@ -1,0 +1,6 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/sc/facetec/facetecplugin_example/MainActivity.java
+ com.sc.facetec.facetecplugin_example.MainActivity
+com/sc/facetec/facetecplugin_example/BuildConfig.java
+ com.sc.facetec.facetecplugin_example.BuildConfig

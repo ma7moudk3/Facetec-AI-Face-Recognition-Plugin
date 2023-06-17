@@ -1,0 +1,46 @@
+group 'com.snapcommute.facetec_flutter_plugin_demo'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        flatDir {
+            dirs project(':facetec_flutter_plugin_demo').file('libs')
+        }
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 31
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion 19
+    }
+}
+dependencies {
+    implementation 'com.android.support:appcompat-v7:+'
+    implementation 'com.squareup.okhttp3:okhttp:3.12.1'
+    implementation 'com.squareup.okio:okio:1.15.0'
+//    implementation fileTree(include: ['*.aar'], dir: 'libs')
+    implementation 'com.facetec:facetec-sdk:9.6.27@aar'
+    implementation 'com.google.code.gson:gson:2.8.6'
+}
