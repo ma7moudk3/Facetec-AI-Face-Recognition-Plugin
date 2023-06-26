@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android.iml" filepath="$PROJECT_DIR$/.idea/modules/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/facetec_flutter_plugin_demo.iml" filepath="$PROJECT_DIR$/.idea/modules/facetec_flutter_plugin_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/facetec_flutter_plugin_demo.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/facetec_flutter_plugin_demo.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/facetec_flutter_plugin_demo/facetec_flutter_plugin_demo.facetec_flutter_plugin_demo.iml" filepath="$PROJECT_DIR$/.idea/modules/facetec_flutter_plugin_demo/facetec_flutter_plugin_demo.facetec_flutter_plugin_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/facetec_flutter_plugin_demo.main.iml" filepath="$PROJECT_DIR$/.idea/modules/facetec_flutter_plugin_demo.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/facetec_flutter_plugin_demo.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/facetec_flutter_plugin_demo.unitTest.iml" />
     </modules>
   </component>
 </project>

@@ -19,7 +19,6 @@ import java.util.Map;
 import com.snapcommute.facetec_flutter_plugin_demo.R;
 
 public class ThemeHelpers {
-
     public static void setAppTheme(Context context, String theme) {
         Config.currentCustomization = getCustomizationForTheme(context, theme);
         Config.currentLowLightCustomization = getLowLightCustomizationForTheme(context, theme);
@@ -146,7 +145,7 @@ public class ThemeHelpers {
             currentCustomization.getOcrConfirmationCustomization().fieldValueTextColor = primaryColor;
             currentCustomization.getOcrConfirmationCustomization().inputFieldTextColor = primaryColor;
             currentCustomization.getOcrConfirmationCustomization().inputFieldPlaceholderTextColor = Color.parseColor("#663BC371");
-            currentCustomization.getOcrConfirmationCustomization().inputFieldBackgroundColor = Color.TRANSPARENT;
+            currentCustomization.getOcrConfirmationCustomization().inputFieldBackgroundColor = Color.parseColor("#FFFFFF");
             currentCustomization.getOcrConfirmationCustomization().inputFieldBorderColor = secondaryColor;
             currentCustomization.getOcrConfirmationCustomization().inputFieldBorderWidth = 2;
             currentCustomization.getOcrConfirmationCustomization().inputFieldCornerRadius = 0;
