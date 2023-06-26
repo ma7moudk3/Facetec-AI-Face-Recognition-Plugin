@@ -159,7 +159,7 @@ public class ThemeHelpers {
             currentCustomization.getOcrConfirmationCustomization().buttonTextDisabledColor = backgroundColor;
             currentCustomization.getOcrConfirmationCustomization().buttonBackgroundDisabledColor = buttonBackgroundDisabledColor;
             currentCustomization.getOcrConfirmationCustomization().buttonBorderColor = Color.TRANSPARENT;
-            currentCustomization.getOcrConfirmationCustomization().buttonBorderWidth = 0;
+            currentCustomization.getOcrConfirmationCustomization().buttonBorderWidth = 5;
             currentCustomization.getOcrConfirmationCustomization().buttonCornerRadius = 30;
             // Result Screen Customization
             currentCustomization.getResultScreenCustomization().backgroundColors = backgroundColor;
