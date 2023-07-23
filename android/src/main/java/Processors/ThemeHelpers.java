@@ -67,7 +67,7 @@ public class ThemeHelpers {
             currentCustomization.getGuidanceCustomization().buttonFont = boldTypeface;
             currentCustomization.getGuidanceCustomization().buttonTextNormalColor = backgroundColor;
             currentCustomization.getGuidanceCustomization().buttonBackgroundNormalColor = primaryColor;
-            currentCustomization.getGuidanceCustomization().buttonTextHighlightColor = backgroundColor;
+            currentCustomization.getGuidanceCustomization().buttonTextHighlightColor = primaryColor;
             currentCustomization.getGuidanceCustomization().buttonBackgroundHighlightColor = Color.parseColor("#565656");
             currentCustomization.getGuidanceCustomization().buttonTextDisabledColor = backgroundColor;
             currentCustomization.getGuidanceCustomization().buttonBackgroundDisabledColor = buttonBackgroundDisabledColor;
@@ -75,7 +75,7 @@ public class ThemeHelpers {
             currentCustomization.getGuidanceCustomization().buttonBorderWidth = 0;
             currentCustomization.getGuidanceCustomization().buttonCornerRadius = 30;
             currentCustomization.getGuidanceCustomization().readyScreenOvalFillColor = Color.TRANSPARENT;
-            currentCustomization.getGuidanceCustomization().readyScreenTextBackgroundColor = backgroundColor;
+            currentCustomization.getGuidanceCustomization().readyScreenTextBackgroundColor = primaryColor;
             currentCustomization.getGuidanceCustomization().readyScreenTextBackgroundCornerRadius = 5;
             currentCustomization.getGuidanceCustomization().retryScreenImageBorderColor = primaryColor;
             currentCustomization.getGuidanceCustomization().retryScreenImageBorderWidth = 2;
@@ -109,11 +109,11 @@ public class ThemeHelpers {
             currentCustomization.getIdScanCustomization().buttonBorderColor = Color.TRANSPARENT;
             currentCustomization.getIdScanCustomization().buttonBorderWidth = 0;
             currentCustomization.getIdScanCustomization().buttonCornerRadius = 30;
-            currentCustomization.getIdScanCustomization().captureScreenTextBackgroundColor = backgroundColor;
+            currentCustomization.getIdScanCustomization().captureScreenTextBackgroundColor = primaryColor;
             currentCustomization.getIdScanCustomization().captureScreenTextBackgroundBorderColor = primaryColor;
             currentCustomization.getIdScanCustomization().captureScreenTextBackgroundBorderWidth = 2;
             currentCustomization.getIdScanCustomization().captureScreenTextBackgroundCornerRadius = 5;
-            currentCustomization.getIdScanCustomization().reviewScreenTextBackgroundColor = backgroundColor;
+            currentCustomization.getIdScanCustomization().reviewScreenTextBackgroundColor = primaryColor;
             currentCustomization.getIdScanCustomization().reviewScreenTextBackgroundBorderColor = primaryColor;
             currentCustomization.getIdScanCustomization().reviewScreenTextBackgroundBorderWidth = 2;
             currentCustomization.getIdScanCustomization().reviewScreenTextBackgroundCornerRadius = 5;
