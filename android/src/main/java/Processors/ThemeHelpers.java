@@ -67,7 +67,7 @@ public class ThemeHelpers {
             currentCustomization.getGuidanceCustomization().buttonFont = boldTypeface;
             currentCustomization.getGuidanceCustomization().buttonTextNormalColor = backgroundColor;
             currentCustomization.getGuidanceCustomization().buttonBackgroundNormalColor = primaryColor;
-            currentCustomization.getGuidanceCustomization().buttonTextHighlightColor = primaryColor;
+            currentCustomization.getGuidanceCustomization().buttonTextHighlightColor = backgroundColor;
             currentCustomization.getGuidanceCustomization().buttonBackgroundHighlightColor = Color.parseColor("#565656");
             currentCustomization.getGuidanceCustomization().buttonTextDisabledColor = backgroundColor;
             currentCustomization.getGuidanceCustomization().buttonBackgroundDisabledColor = buttonBackgroundDisabledColor;
@@ -75,7 +75,7 @@ public class ThemeHelpers {
             currentCustomization.getGuidanceCustomization().buttonBorderWidth = 0;
             currentCustomization.getGuidanceCustomization().buttonCornerRadius = 30;
             currentCustomization.getGuidanceCustomization().readyScreenOvalFillColor = Color.TRANSPARENT;
-            currentCustomization.getGuidanceCustomization().readyScreenTextBackgroundColor = primaryColor;
+            currentCustomization.getGuidanceCustomization().readyScreenTextBackgroundColor = backgroundColor;
             currentCustomization.getGuidanceCustomization().readyScreenTextBackgroundCornerRadius = 5;
             currentCustomization.getGuidanceCustomization().retryScreenImageBorderColor = primaryColor;
             currentCustomization.getGuidanceCustomization().retryScreenImageBorderWidth = 2;
@@ -109,11 +109,11 @@ public class ThemeHelpers {
             currentCustomization.getIdScanCustomization().buttonBorderColor = Color.TRANSPARENT;
             currentCustomization.getIdScanCustomization().buttonBorderWidth = 0;
             currentCustomization.getIdScanCustomization().buttonCornerRadius = 30;
-            currentCustomization.getIdScanCustomization().captureScreenTextBackgroundColor = primaryColor;
+            currentCustomization.getIdScanCustomization().captureScreenTextBackgroundColor = backgroundColor;
             currentCustomization.getIdScanCustomization().captureScreenTextBackgroundBorderColor = primaryColor;
             currentCustomization.getIdScanCustomization().captureScreenTextBackgroundBorderWidth = 2;
             currentCustomization.getIdScanCustomization().captureScreenTextBackgroundCornerRadius = 5;
-            currentCustomization.getIdScanCustomization().reviewScreenTextBackgroundColor = primaryColor;
+            currentCustomization.getIdScanCustomization().reviewScreenTextBackgroundColor = backgroundColor;
             currentCustomization.getIdScanCustomization().reviewScreenTextBackgroundBorderColor = primaryColor;
             currentCustomization.getIdScanCustomization().reviewScreenTextBackgroundBorderWidth = 2;
             currentCustomization.getIdScanCustomization().reviewScreenTextBackgroundCornerRadius = 5;
@@ -182,12 +182,12 @@ public class ThemeHelpers {
             currentCustomization.getResultScreenCustomization().animationRelativeScale = 1.0f;
             // Feedback Customization
             currentCustomization.getFeedbackCustomization().backgroundColors = secondaryColor;
-            currentCustomization.getFeedbackCustomization().textColor = backgroundColor;
+            currentCustomization.getFeedbackCustomization().textColor = primaryColor;
             currentCustomization.getFeedbackCustomization().textFont = boldTypeface;
             currentCustomization.getFeedbackCustomization().cornerRadius = 5;
             currentCustomization.getFeedbackCustomization().elevation = 10;
             // Frame Customization
-            currentCustomization.getFrameCustomization().backgroundColor = backgroundColor;
+            currentCustomization.getFrameCustomization().backgroundColor = secondaryColor;
             currentCustomization.getFrameCustomization().borderColor = primaryColor;
             currentCustomization.getFrameCustomization().borderWidth = 0;
             currentCustomization.getFrameCustomization().cornerRadius = 0;
