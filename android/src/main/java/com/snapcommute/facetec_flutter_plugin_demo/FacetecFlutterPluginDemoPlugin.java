@@ -457,10 +457,16 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                         //
 
                         String responseString = response.body().string();
+                        Log.v("responseString", responseString);
+
                         response.body().close();
                         try {
                             JSONObject responseJSON = new JSONObject(responseString);
+                            Log.v("responseJSON", responseJSON.toString());
+
                             boolean wasProcessed = responseJSON.getBoolean("success");
+                            Log.v("responseJSON", responseJSON.toString());
+
                             //String status = responseJSON.getString("status");
                             //result.success("successstatus");
                             // In v9.2.0+, we key off a new property called wasProcessed to determine if we successfully processed the Session result on the Server.
