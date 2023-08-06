@@ -45,7 +45,7 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
     private String deviceKeyId;
     public String documentData = "";
     private String[] base64Image;
-    private String externalDatabaseRefID = "android_sample_app_" + randomUUID();
+    private String externalDatabaseRefID = "orange_face_tec" + randomUUID();
     //private final FaceTecSessionActivity sampleAppActivity;
     public String errorMessage = "";
     private String langCode="ar";
@@ -122,10 +122,12 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
 
             parameters.put("lowQualityAuditTrailImage", sessionResult.getLowQualityAuditTrailCompressedBase64()[0]);
             parameters.put("externalDatabaseRefID", externalDatabaseRefID);
+
         } catch (JSONException e) {
             e.printStackTrace();
             Log.d("FaceTecSDKSampleApp", "Exception raised while attempting to create JSON payload for upload.");
         }
+        Log.d("faceTecRequest", parameters.toString());
 
         //
         // Part 5:  Make the Networking Call to Your Servers.  Below is just example code, you are free to customize based on how your own API works.
@@ -149,6 +151,8 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
                             }
                         }))
                 .build();
+        Log.d("faceTecRequest", request.headers().toString());
+
 
         //
         // Part 8:  Actually send the request.
@@ -176,6 +180,7 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
                     if (wasProcessed) {
 
                         // Demonstrates dynamically setting the Success Screen Message.
+
                         FaceTecCustomization.overrideResultScreenSuccessMessage = langCode.equals("ar") ? "تم تأكيد أنك لست\nروبوت": "Liveness\nConfirmed";
 
                         // In v9.2.0+, simply pass in scanResultBlob to the proceedToNextStep function to advance the User flow.
