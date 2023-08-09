@@ -195,4 +195,9 @@ public class LivenessCheckProcessor extends Processor implements FaceTecFaceScan
     }
 
     public String getDocumentData(){ return "";}
+
+    @Override
+    public String getLastExternalRefId() {
+        return  this.getLastExternalRefId();
+    }
 }

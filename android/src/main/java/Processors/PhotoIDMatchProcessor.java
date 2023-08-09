@@ -127,6 +127,7 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
             e.printStackTrace();
             Log.d("FaceTecSDKSampleApp", "Exception raised while attempting to create JSON payload for upload.");
         }
+
         Log.d("faceTecRequest", parameters.toString());
 
         //
@@ -382,5 +383,9 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
 
     public String getDocumentData() {
         return documentData;
+    }
+    @Override
+    public String getLastExternalRefId() {
+        return  this.getLastExternalRefId();
     }
 }

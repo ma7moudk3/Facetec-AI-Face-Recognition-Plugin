@@ -249,4 +249,9 @@ public class PhotoIDScanProcessor extends Processor implements FaceTecIDScanProc
     public String getDocumentData() {
         return documentData;
     }
+
+    @Override
+    public String getLastExternalRefId() {
+        return "";
+    }
 }

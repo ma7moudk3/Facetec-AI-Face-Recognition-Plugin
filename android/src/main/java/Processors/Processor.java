@@ -8,5 +8,8 @@ public abstract class Processor {
     public abstract String getErrorMessage();
 
     public abstract String getDocumentData();
+
+    public abstract String getLastExternalRefId();
+
 }
 

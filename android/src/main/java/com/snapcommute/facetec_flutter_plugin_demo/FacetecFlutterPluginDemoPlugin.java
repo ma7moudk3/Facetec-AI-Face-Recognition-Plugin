@@ -350,7 +350,7 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
         // At this point, you have already handled all results in your Processor code.
         if (!this.latestProcessor.isSuccess()) {
             // Reset the enrollment identifier.
-            //latestExternalDatabaseRefID = "";
+            //String latestExternalDatabaseRefID = "";
             Log.d("isSuccess", "not isSuccess");
             //Log.d("isSuccess",this.latestProcessor.errorMessage);
             if (!this.latestProcessor.getErrorMessage().equals("")) {
@@ -364,7 +364,11 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                 base64Image = latestProcessor.getBase64Images();
                 if (latestProcessor.getDocumentData().equals("")) {
                     JSONObject scannedDocumentDataResult = new JSONObject();
+
                     try {
+                        scannedDocumentDataResult.put("externalDatabaseRefID",
+                                latestProcessor.getLastExternalRefId()
+                        );
                         scannedDocumentDataResult.put(
                                 "documentData",
                                 latestProcessor.getDocumentData()
@@ -397,6 +401,9 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                 } else {
                     JSONObject scannedDocumentDataResult = new JSONObject();
                     try {
+                        scannedDocumentDataResult.put("externalDatabaseRefID",
+                                latestProcessor.getLastExternalRefId()
+                        );
                         scannedDocumentDataResult.put(
                                 "documentData",
                                 latestProcessor.getDocumentData()
