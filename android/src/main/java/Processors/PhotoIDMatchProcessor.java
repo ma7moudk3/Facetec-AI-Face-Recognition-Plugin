@@ -386,6 +386,6 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
     }
     @Override
     public String getLastExternalRefId() {
-        return  this.getLastExternalRefId();
+        return externalDatabaseRefID ;
     }
 }

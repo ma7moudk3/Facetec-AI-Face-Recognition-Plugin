@@ -198,6 +198,7 @@ public class LivenessCheckProcessor extends Processor implements FaceTecFaceScan
 
     @Override
     public String getLastExternalRefId() {
-        return  this.getLastExternalRefId();
+        return "" ;
+
     }
 }
