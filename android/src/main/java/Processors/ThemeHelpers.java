@@ -144,7 +144,7 @@ public class ThemeHelpers {
             currentCustomization.getOcrConfirmationCustomization().fieldLabelTextColor = primaryColor;
             currentCustomization.getOcrConfirmationCustomization().fieldValueTextColor = primaryColor;
             currentCustomization.getOcrConfirmationCustomization().inputFieldTextColor = primaryColor;
-            currentCustomization.getOcrConfirmationCustomization().inputFieldPlaceholderTextColor = Color.parseColor("#663BC371");
+            currentCustomization.getOcrConfirmationCustomization().inputFieldPlaceholderTextColor = primaryColor;
             currentCustomization.getOcrConfirmationCustomization().inputFieldBackgroundColor = Color.parseColor("#FFFFFF");
             currentCustomization.getOcrConfirmationCustomization().inputFieldBorderColor = secondaryColor;
             currentCustomization.getOcrConfirmationCustomization().inputFieldBorderWidth = 2;
@@ -177,7 +177,7 @@ public class ThemeHelpers {
             currentCustomization.getResultScreenCustomization().customStaticResultAnimationSuccess = R.drawable.pseudo_fullscreen_static_success_vector_drawable;
             currentCustomization.getResultScreenCustomization().customStaticResultAnimationUnsuccess = R.drawable.pseudo_fullscreen_static_unsuccess_vector_drawable;
             currentCustomization.getResultScreenCustomization().showUploadProgressBar = true;
-            currentCustomization.getResultScreenCustomization().uploadProgressTrackColor = Color.parseColor("#332B2B2B");
+            currentCustomization.getResultScreenCustomization().uploadProgressTrackColor = primaryColor;
             currentCustomization.getResultScreenCustomization().uploadProgressFillColor = secondaryColor;
             currentCustomization.getResultScreenCustomization().animationRelativeScale = 1.0f;
             // Feedback Customization
@@ -194,8 +194,8 @@ public class ThemeHelpers {
             currentCustomization.getFrameCustomization().elevation = 0;
             // Oval Customization
             currentCustomization.getOvalCustomization().strokeColor = primaryColor;
-            currentCustomization.getOvalCustomization().progressColor1 = Color.parseColor("#BF3BC371");
-            currentCustomization.getOvalCustomization().progressColor2 = Color.parseColor("#BF3BC371");
+            currentCustomization.getOvalCustomization().progressColor1 = primaryColor;
+            currentCustomization.getOvalCustomization().progressColor2 = primaryColor;
             // Cancel Button Customization
             currentCustomization.getCancelButtonCustomization().customImage = R.drawable.single_chevron_left_offblack;
             currentCustomization.getCancelButtonCustomization().setLocation(FaceTecCancelButtonCustomization.ButtonLocation.CUSTOM);
