@@ -432,6 +432,12 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                                     latestProcessor.getBase64Images()[2]
                             );
                         }
+                        if (latestProcessor.getBase64Images().length >= 4) {
+                            scannedDocumentDataResult.put(
+                                    "faceScan",
+                                    latestProcessor.getBase64Images()[3]
+                            );
+                        }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
