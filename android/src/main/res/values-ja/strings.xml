@@ -51,7 +51,7 @@
     <string name="FaceTec_feedback_move_phone_closer">Move Closer</string>
     <string name="FaceTec_feedback_move_phone_to_eye_level">Move Camera To Eye Level</string>
     <string name="FaceTec_feedback_use_even_lighting">Light Face More Evenly</string>
-    <string name="FaceTec_idscan_additional_review_message">Additional Review\nRequired</string>
+    <string name="FaceTec_idscan_additional_review_message" />
     <string name="FaceTec_idscan_capture_hold_steady_message">Please Hold Steady</string>
     <string name="FaceTec_idscan_capture_id_back_instruction_message">Show Back of ID</string>
     <string name="FaceTec_idscan_capture_id_front_instruction_message">Show Front of ID</string>

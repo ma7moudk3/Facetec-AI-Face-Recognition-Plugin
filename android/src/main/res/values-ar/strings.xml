@@ -50,7 +50,7 @@
     <string name="FaceTec_feedback_move_phone_closer">تحرّك باتجاه الكاميرا</string>
     <string name="FaceTec_feedback_move_phone_to_eye_level">حرّك الكاميرا لمستوى عينيك</string>
     <string name="FaceTec_feedback_use_even_lighting">استخدم إضاءة متساوية</string>
-    <string name="FaceTec_idscan_additional_review_message">مراجعة إضافية\nمطلوبة</string>
+    <string name="FaceTec_idscan_additional_review_message" />
     <string name="FaceTec_idscan_capture_hold_steady_message">ثبّت الهاتف بثبات</string>
     <string name="FaceTec_idscan_capture_id_back_instruction_message">اظهر الجهة الخلفية للبطاقة</string>
     <string name="FaceTec_idscan_capture_id_front_instruction_message">اظهر الجهة الأمامية للبطاقة</string>
