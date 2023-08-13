@@ -16,7 +16,7 @@
                         m 0, -10
                         a 10,-10 0 1,0 0,20
                         a 10,-10 0 1,0 0,-20"
-            android:strokeColor="#EEF6F8"
+            android:strokeColor="#FF7900"
             android:strokeWidth="0"
             android:trimPathStart="1"
             android:strokeLineCap="round"

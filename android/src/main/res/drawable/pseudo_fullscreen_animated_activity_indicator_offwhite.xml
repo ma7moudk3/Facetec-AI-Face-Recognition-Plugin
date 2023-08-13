@@ -22,7 +22,7 @@
                         m 0, -20
                         a 10,-10 0 1,0 0, 40
                         a 10,-10 0 1,0 0, -40"
-                    android:strokeColor="#EEF6F8"
+                    android:strokeColor="#FF7900"
                     android:strokeWidth="4"
                     android:strokeLineCap="round"
                     android:strokeLineJoin="miter"
