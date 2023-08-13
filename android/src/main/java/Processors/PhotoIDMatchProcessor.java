@@ -53,7 +53,7 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
     public PhotoIDMatchProcessor(String sessionToken, Context context, String deviceKeyId, String baseUrl, String langCode) {
         this.deviceKeyId = deviceKeyId;
         this.baseUrl = baseUrl;
-        this.base64Image = new String[]{"", "", ""};
+        this.base64Image = new String[]{"", "", "",""};
         this.langCode = langCode;
 
         // In v9.2.2+, configure the messages that will be displayed to the User in each of the possible cases.
