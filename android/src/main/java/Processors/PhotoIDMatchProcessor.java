@@ -119,7 +119,10 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
             parameters.put("faceScan", sessionResult.getFaceScanBase64());
             parameters.put("auditTrailImage", sessionResult.getAuditTrailCompressedBase64()[0]);
             base64Image[2] = sessionResult.getAuditTrailCompressedBase64()[0];
-            base64Image[3] = sessionResult.getFaceScanBase64();
+
+           if(sessionResult.getAuditTrailCompressedBase64().length > 1){
+               base64Image[3] = sessionResult.getAuditTrailCompressedBase64()[1];
+           }
             parameters.put("lowQualityAuditTrailImage", sessionResult.getLowQualityAuditTrailCompressedBase64()[0]);
             parameters.put("externalDatabaseRefID", externalDatabaseRefID);
 
