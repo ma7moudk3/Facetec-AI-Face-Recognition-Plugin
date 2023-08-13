@@ -61,7 +61,7 @@ public class ThemeHelpers {
             currentCustomization.getOverlayCustomization().brandingImage = 0;
             currentCustomization.getInitialLoadingAnimationCustomization().foregroundColor = primaryColor;
             currentCustomization.getInitialLoadingAnimationCustomization().backgroundColors = backgroundColor;
-            currentCustomization.getInitialLoadingAnimationCustomization().defaultAnimationBackgroundColor = buttonBackgroundDisabledColor;
+            currentCustomization.getInitialLoadingAnimationCustomization().defaultAnimationBackgroundColor = Color.parseColor("#f2f2f2");
             currentCustomization.getInitialLoadingAnimationCustomization().defaultAnimationForegroundColor = primaryColor;
 
             // Guidance Customization
