@@ -42,6 +42,6 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.12.1'
     implementation 'com.squareup.okio:okio:1.15.0'
     // implementation fileTree(include: ['*.aar'], dir: 'libs')
-    implementation 'com.facetec:facetec-sdk:9.6.27@aar'
+    implementation 'com.facetec:facetec-sdk:9.6.46@aar'
     implementation 'com.google.code.gson:gson:2.8.6'
 }

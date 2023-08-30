@@ -1,5 +1,7 @@
 package Processors;
 
+import static java.security.AccessController.getContext;
+
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Rect;
@@ -19,8 +21,8 @@ import java.util.Map;
 import com.snapcommute.facetec_flutter_plugin_demo.R;
 
 public class ThemeHelpers {
-    public static void setAppTheme(Context context, String theme) {
-        Config.currentCustomization = getCustomizationForTheme(context, theme);
+    public static void setAppTheme(Context context, String theme, String lang) {
+        Config.currentCustomization = getCustomizationForTheme(context, theme, lang);
         Config.currentLowLightCustomization = getLowLightCustomizationForTheme(context, theme);
         Config.currentDynamicDimmingCustomization = getDynamicDimmingCustomizationForTheme(context, theme);
 
@@ -31,7 +33,7 @@ public class ThemeHelpers {
         FaceTecSDK.setDynamicDimmingCustomization(Config.currentDynamicDimmingCustomization);
     }
 
-    public static FaceTecCustomization getCustomizationForTheme(Context context, String theme) {
+    public static FaceTecCustomization getCustomizationForTheme(Context context, String theme, String lang) {
         FaceTecCustomization currentCustomization = new FaceTecCustomization();
 
         int[] retryScreenSlideshowImages = new int[]{R.drawable.ideal_image_1, R.drawable.ideal_image_2, R.drawable.ideal_image_3, R.drawable.ideal_image_4, R.drawable.ideal_image_5};
@@ -51,10 +53,18 @@ public class ThemeHelpers {
         } else if (theme.equals("Pseudo-Fullscreen")) {
             int primaryColor = Color.parseColor("#FF7900"); //
             int secondaryColor = Color.parseColor("#EEF6F8"); //
-            int backgroundColor = Color.parseColor("#EEF6F8"); //
+            int backgroundColor = Color.parseColor("#FFFFFF"); //
             int buttonBackgroundDisabledColor = Color.parseColor("#adadad");
-            Typeface boldTypeface = Typeface.create("sans-serif", Typeface.BOLD);
-            Typeface normalTypeface = Typeface.create("sans-serif", Typeface.NORMAL);
+            Typeface boldTypeface;
+            Typeface normalTypeface;
+            if(lang.equals("ar")){
+                boldTypeface = Typeface.createFromAsset(context.getAssets(), "fonts/SomarSans-Bold.otf");
+                normalTypeface = Typeface.createFromAsset(context.getAssets(), "fonts/SomarSans-Regular.otf");
+            }else{
+                boldTypeface = Typeface.createFromAsset(context.getAssets(), "fonts/Poppins-Bold.ttf");
+                normalTypeface = Typeface.createFromAsset(context.getAssets(), "fonts/Poppins-Regular.ttf");
+            }
+
             // Overlay Customization
             currentCustomization.getOverlayCustomization().backgroundColor = backgroundColor;
             currentCustomization.getOverlayCustomization().showBrandingImage = false;
@@ -63,7 +73,6 @@ public class ThemeHelpers {
             currentCustomization.getInitialLoadingAnimationCustomization().backgroundColors = backgroundColor;
             currentCustomization.getInitialLoadingAnimationCustomization().defaultAnimationBackgroundColor = Color.parseColor("#f2f2f2");
             currentCustomization.getInitialLoadingAnimationCustomization().defaultAnimationForegroundColor = primaryColor;
-
             // Guidance Customization
             currentCustomization.getGuidanceCustomization().backgroundColors = backgroundColor;
             currentCustomization.getGuidanceCustomization().foregroundColor = primaryColor;
@@ -136,24 +145,29 @@ public class ThemeHelpers {
             currentCustomization.getIdScanCustomization().customStaticNFCSkipOrErrorAnimation = R.drawable.pseudo_fullscreen_static_unsuccess_vector_drawable;
             // OCR Confirmation Screen Customization
             currentCustomization.getOcrConfirmationCustomization().backgroundColors = backgroundColor;
-            currentCustomization.getOcrConfirmationCustomization().mainHeaderDividerLineColor = secondaryColor;
-            currentCustomization.getOcrConfirmationCustomization().mainHeaderDividerLineWidth = 2;
+            currentCustomization.getOcrConfirmationCustomization().mainHeaderDividerLineColor = primaryColor;
+            currentCustomization.getOcrConfirmationCustomization().mainHeaderDividerLineWidth =3;
             currentCustomization.getOcrConfirmationCustomization().mainHeaderFont = boldTypeface;
+            currentCustomization.getOcrConfirmationCustomization().mainHeaderTextColor = Color.parseColor("#000000");
+
             currentCustomization.getOcrConfirmationCustomization().sectionHeaderFont = boldTypeface;
             currentCustomization.getOcrConfirmationCustomization().fieldLabelFont = normalTypeface;
             currentCustomization.getOcrConfirmationCustomization().fieldValueFont = normalTypeface;
             currentCustomization.getOcrConfirmationCustomization().inputFieldFont = normalTypeface;
             currentCustomization.getOcrConfirmationCustomization().inputFieldPlaceholderFont = normalTypeface;
-            currentCustomization.getOcrConfirmationCustomization().mainHeaderTextColor = secondaryColor;
-            currentCustomization.getOcrConfirmationCustomization().sectionHeaderTextColor = primaryColor;
+            currentCustomization.getOcrConfirmationCustomization().mainHeaderTextColor = Color.parseColor("#000000");
+            currentCustomization.getOcrConfirmationCustomization().sectionHeaderTextColor = Color.parseColor("#000000");
             currentCustomization.getOcrConfirmationCustomization().fieldLabelTextColor = primaryColor;
-            currentCustomization.getOcrConfirmationCustomization().fieldValueTextColor = primaryColor;
-            currentCustomization.getOcrConfirmationCustomization().inputFieldTextColor = primaryColor;
+            currentCustomization.getOcrConfirmationCustomization().fieldValueTextColor = Color.parseColor("#000000");
+            currentCustomization.getOcrConfirmationCustomization().inputFieldTextColor = Color.parseColor("#000000");
             currentCustomization.getOcrConfirmationCustomization().inputFieldPlaceholderTextColor = primaryColor;
             currentCustomization.getOcrConfirmationCustomization().inputFieldBackgroundColor = Color.parseColor("#FFFFFF");
-            currentCustomization.getOcrConfirmationCustomization().inputFieldBorderColor = secondaryColor;
-            currentCustomization.getOcrConfirmationCustomization().inputFieldBorderWidth = 2;
-            currentCustomization.getOcrConfirmationCustomization().inputFieldCornerRadius = 0;
+            currentCustomization.getOcrConfirmationCustomization().inputFieldBorderColor = Color.parseColor("#a6a6a6");
+            currentCustomization.getOcrConfirmationCustomization().inputFieldBorderWidth = 1;
+
+            currentCustomization.getOcrConfirmationCustomization().inputFieldPlaceholderFont = normalTypeface;
+            currentCustomization.getOcrConfirmationCustomization().inputFieldCornerRadius = 10;
+
             currentCustomization.getOcrConfirmationCustomization().showInputFieldBottomBorderOnly = true;
             currentCustomization.getOcrConfirmationCustomization().buttonFont = boldTypeface;
             currentCustomization.getOcrConfirmationCustomization().buttonTextNormalColor = backgroundColor;
@@ -164,7 +178,11 @@ public class ThemeHelpers {
             currentCustomization.getOcrConfirmationCustomization().buttonBackgroundDisabledColor = buttonBackgroundDisabledColor;
             currentCustomization.getOcrConfirmationCustomization().buttonBorderColor = Color.TRANSPARENT;
             currentCustomization.getOcrConfirmationCustomization().buttonBorderWidth = 5;
-            currentCustomization.getOcrConfirmationCustomization().buttonCornerRadius = 30;
+            currentCustomization.getOcrConfirmationCustomization().buttonCornerRadius = 15;
+            currentCustomization.getOcrConfirmationCustomization().scrollIndicatorBackgroundNormalColor = primaryColor;
+            currentCustomization.getOcrConfirmationCustomization().scrollIndicatorFont = normalTypeface;
+
+
             // Result Screen Customization
             currentCustomization.getResultScreenCustomization().backgroundColors = backgroundColor;
             currentCustomization.getResultScreenCustomization().foregroundColor = primaryColor;
@@ -192,7 +210,7 @@ public class ThemeHelpers {
             currentCustomization.getFeedbackCustomization().cornerRadius = 5;
             currentCustomization.getFeedbackCustomization().elevation = 10;
             // Frame Customization
-            currentCustomization.getFrameCustomization().backgroundColor = secondaryColor;
+            currentCustomization.getFrameCustomization().backgroundColor = Color.parseColor("#FFFFFF");
             currentCustomization.getFrameCustomization().borderColor = primaryColor;
             currentCustomization.getFrameCustomization().borderWidth = 0;
             currentCustomization.getFrameCustomization().cornerRadius = 0;
@@ -851,7 +869,7 @@ public class ThemeHelpers {
     }
 
     static FaceTecCustomization getLowLightCustomizationForTheme(Context context, String theme) {
-        FaceTecCustomization currentLowLightCustomization = getCustomizationForTheme(context, theme);
+        FaceTecCustomization currentLowLightCustomization = getCustomizationForTheme(context, theme,"ar");
 
         int[] retryScreenSlideshowImages = new int[]{R.drawable.ideal_image_1, R.drawable.ideal_image_2, R.drawable.ideal_image_3, R.drawable.ideal_image_4, R.drawable.ideal_image_5};
 
@@ -1034,7 +1052,7 @@ public class ThemeHelpers {
     }
 
     static FaceTecCustomization getDynamicDimmingCustomizationForTheme(Context context, String theme) {
-        FaceTecCustomization currentDynamicDimmingCustomization = getCustomizationForTheme(context, theme);
+        FaceTecCustomization currentDynamicDimmingCustomization = getCustomizationForTheme(context, theme,"ar");
 
         int[] retryScreenSlideshowImages = new int[]{R.drawable.ideal_image_1, R.drawable.ideal_image_2, R.drawable.ideal_image_3, R.drawable.ideal_image_4, R.drawable.ideal_image_5};
 
