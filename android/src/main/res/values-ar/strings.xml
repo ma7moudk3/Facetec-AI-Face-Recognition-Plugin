@@ -52,8 +52,8 @@
     <string name="FaceTec_feedback_use_even_lighting">استخدم إضاءة متساوية</string>
     <string name="FaceTec_idscan_additional_review_message" />
     <string name="FaceTec_idscan_capture_hold_steady_message">ثبّت الهاتف بثبات</string>
-    <string name="FaceTec_idscan_capture_id_back_instruction_message">اظهر الجهة الخلفية للبطاقة</string>
-    <string name="FaceTec_idscan_capture_id_front_instruction_message">اظهر الجهة الأمامية للبطاقة</string>
+    <string name="FaceTec_idscan_capture_id_back_instruction_message">مسح الوجه الأمامي للهوية</string>
+    <string name="FaceTec_idscan_capture_id_front_instruction_message">مسح الوجه الخلفي للهوية</string>
     <string name="FaceTec_idscan_capture_tap_to_focus_message">اضغط على الشاشة للتركيز</string>
     <string name="FaceTec_idscan_nfc_card_status_finished_with_error_message">قراءة رقاقة البطاقة غير ممكنة</string>
     <string name="FaceTec_idscan_nfc_card_status_ready_message">استعد لمسح\nرقاقة بطاقتك الشخصية</string>

@@ -53,8 +53,8 @@
     <string name="FaceTec_feedback_use_even_lighting">Light Face More Evenly</string>
     <string name="FaceTec_idscan_additional_review_message" />
     <string name="FaceTec_idscan_capture_hold_steady_message">Please Hold Steady</string>
-    <string name="FaceTec_idscan_capture_id_back_instruction_message">Show Back of ID</string>
-    <string name="FaceTec_idscan_capture_id_front_instruction_message">Show Front of ID</string>
+    <string name="FaceTec_idscan_capture_id_back_instruction_message">Scan Back Side of ID </string>
+    <string name="FaceTec_idscan_capture_id_front_instruction_message">Scan Front Side of ID</string>
     <string name="FaceTec_idscan_capture_tap_to_focus_message">Tap Screen To Focus</string>
     <string name="FaceTec_idscan_nfc_card_status_finished_with_error_message">ID Card Chip\nUnreadable</string>
     <string name="FaceTec_idscan_nfc_card_status_ready_message">Get Ready to Scan\nYour ID Card Chip</string>

@@ -45,9 +45,10 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
     private MethodChannel channel;
     private String zoomServerBaseURL = "https://api.facetec.com/api/v3.1/biometrics";
     private static String TAG = "FaceTec";
+    // wrong key
     //private String licenseKey = "d1lThcmc6tJy4SjN8pBkAzy7ennbAwCP";
-    private String licenseKey = "d1DxEKEZbySGfPtev0xfuW3lYWyK5IHe";
-    //private String licenseKey = "drDxEKEZbySGfPtev0xfuW3lYWyK5IHe";
+    // valid key
+     private String licenseKey = "drDxEKEZbySGfPtev0xfuW3lYWyK5IHe";
     private String publicKey =
             "-----BEGIN PUBLIC KEY-----\n" +
                     "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5PxZ3DLj+zP6T6HFgzzk\n" +
