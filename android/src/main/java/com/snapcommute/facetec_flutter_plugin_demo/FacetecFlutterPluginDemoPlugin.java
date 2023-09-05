@@ -503,7 +503,7 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                                 // scanResultBlob is a proprietary, encrypted blob that controls the logic for what happens next for the User.
                                 //success = faceScanResultCallback.proceedToNextStep(scanResultBlob);
                             } else {
-                                pendingCallbackContext.success("errorNot processed");
+                                pendingCallbackContext.success("error Not processed (UNEXPECTED response from API)");
                                 // CASE:  UNEXPECTED response from API.  Our Sample Code keys off a wasProcessed boolean on the root of the JSON object --> You define your own API contracts with yourself and may choose to do something different here based on the error.
                                 //faceScanResultCallback.cancel();
                             }
@@ -512,7 +512,7 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                             e.printStackTrace();
                             Log.d("FaceTecSDKSampleApp", "Exception raised while attempting to parse JSON result.");
                             //faceScanResultCallback.cancel();
-                            pendingCallbackContext.success("errorJSON exception");
+                            pendingCallbackContext.success("json parsing exception (Parsing the response into JSON failed)");
                         }
                     }
 
@@ -521,7 +521,7 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                         // CASE:  Network Request itself is erroring --> You define your own API contracts with yourself and may choose to do something different here based on the error.
                         Log.d("FaceTecSDKSampleApp", "Exception raised while attempting HTTPS call.");
                         //faceScanResultCallback.cancel();
-                        pendingCallbackContext.success("errorHTTP call error");
+                        pendingCallbackContext.success("errorHTTP call error (Network Request itself is erroring)");
                     }
                 });
             }
