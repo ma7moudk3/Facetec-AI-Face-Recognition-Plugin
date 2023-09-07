@@ -3,8 +3,8 @@
     <string name="enroll_simple">تسجيل المستخدم</string>
     <string name="auth_simple">مصادقة المستخدم</string>
     <string name="liveness_check">فحص الوجه ثلاثي الأبعاد</string>
-    <string name="identity_check">مطابقة الوجه مع الهوية</string>
-    <string name="identity_scan_only">مسح وتحويل النص الضوئي للهوية</string>
+    <string name="identity_check">مطابقة الوجه مع الوثيقة</string>
+    <string name="identity_scan_only">مسح وتحويل النص الضوئي للوثيقة</string>
     <string name="session_review">عرض نتيجة المطابقة</string>
     <string name="audit_trail">عرض نتيجة التدقيق</string>
     <string name="design_showcase">عرض التصميم</string>
@@ -31,7 +31,7 @@
     <string name="FaceTec_action_ok">موافق</string>
     <string name="FaceTec_action_retake_photo">إعادة التقاط الصورة</string>
     <string name="FaceTec_action_scan_nfc">مسح جواز السفر الإلكتروني</string>
-    <string name="FaceTec_action_scan_nfc_card">مسح بطاقة الهوية</string>
+    <string name="FaceTec_action_scan_nfc_card">مسح الوثيقة</string>
     <string name="FaceTec_action_skip_nfc">تخطي هذه الخطوة</string>
     <string name="FaceTec_action_take_photo">التقاط صورة</string>
     <string name="FaceTec_action_try_again">حاول مرة أخرى</string>
@@ -52,8 +52,8 @@
     <string name="FaceTec_feedback_use_even_lighting">استخدم إضاءة متساوية</string>
     <string name="FaceTec_idscan_additional_review_message" />
     <string name="FaceTec_idscan_capture_hold_steady_message">ثبّت الهاتف بثبات</string>
-    <string name="FaceTec_idscan_capture_id_back_instruction_message">مسح الوجه الخلفي للهوية</string>
-    <string name="FaceTec_idscan_capture_id_front_instruction_message">مسح الوجه الأمامي للهوية</string>
+    <string name="FaceTec_idscan_capture_id_back_instruction_message">مسح الوجه الخلفي للوثيقة</string>
+    <string name="FaceTec_idscan_capture_id_front_instruction_message">مسح الوجه الأمامي للوثيقة</string>
     <string name="FaceTec_idscan_capture_tap_to_focus_message">اضغط على الشاشة للتركيز</string>
     <string name="FaceTec_idscan_nfc_card_status_finished_with_error_message">قراءة رقاقة البطاقة غير ممكنة</string>
     <string name="FaceTec_idscan_nfc_card_status_ready_message">استعد لمسح\nرقاقة بطاقتك الشخصية</string>
@@ -70,10 +70,10 @@
     <string name="FaceTec_idscan_ocr_confirmation_scroll_message">انزل للأسفل</string>
     <string name="FaceTec_idscan_review_id_back_instruction_message">تأكد من وضوح الصورة الخلفية وتمكّن منها</string>
     <string name="FaceTec_idscan_review_id_front_instruction_message">تأكد من وضوح الصورة الأمامية وتمكّن منها</string>
-    <string name="FaceTec_idscan_type_selection_header">تحضير لمسح\nوثيقة الهوية الخاصة بك</string>
+    <string name="FaceTec_idscan_type_selection_header">تحضير لمسح\nالوثيقة الخاصة بك</string>
     <string name="FaceTec_initializing_camera">جارٍ تأمين إشارة الكاميرا</string>
-    <string name="FaceTec_instructions_header_ready_1">استعد لمقطع الفيديو الخاص بك</string>
-    <string name="FaceTec_instructions_header_ready_2">التقط صورة سيلفي</string>
+    <string name="FaceTec_instructions_header_ready_1">استعد لالتقاط الصورة الشخصية\nالخاصة بك</string>
+    <string name="FaceTec_instructions_header_ready_2">التقط صورة شخصية</string>
     <string name="FaceTec_instructions_message_ready_1">ضع وجهك داخل المربع الأوّل،</string>
     <string name="FaceTec_instructions_message_ready_2">اضغط "جاهز" واقترب </string>
     <string name="FaceTec_internal_dev_mode_tag">هذا التطبيق في وضع التطوير</string>
@@ -87,7 +87,7 @@
     <string name="FaceTec_presession_neutral_expression">اجعل تعابير وجهك طبيعية، بدون إبتسامة</string>
     <string name="FaceTec_presession_position_face_straight_in_oval">انظر مباشرة أمامك</string>
     <string name="FaceTec_presession_remove_dark_glasses">ازل النظارة السوداء</string>
-    <string name="FaceTec_result_facescan_upload_message">جاري تحميل\nمسح الوجه الثلاثي الأبعاد\nالمشفر</string>
+    <string name="FaceTec_result_facescan_upload_message">قيد التحقق</string>
     <string name="FaceTec_result_idscan_retry_barcode_not_read_message">فشلت عملية المسح الضوئي للباركود\nيرجى المحاولة مرة أخرى</string>
     <string name="FaceTec_result_idscan_retry_face_did_not_match_message">لم يتم تطابق الوجه\nبشكل كافٍ</string>
     <string name="FaceTec_result_idscan_retry_id_not_fully_visible_message">المستند غير مرئي بشكل كامل</string>
@@ -97,17 +97,17 @@
     <string name="FaceTec_result_idscan_success_additional_review_message">تم التقاط صورة المستند\nبنجاح</string>
 
 
-    <string name="FaceTec_result_idscan_success_back_side_message">تم مسح الهوية بنجاح</string>
-    <string name="FaceTec_result_idscan_success_back_side_nfc_next_message">جزء الخلف من الهوية\nتم المسح</string>
-    <string name="FaceTec_result_idscan_success_front_side_back_next_message">جزء الأمام من الهوية\nتم المسح</string>
-    <string name="FaceTec_result_idscan_success_front_side_message">تم مسح الهوية بنجاح</string>
-    <string name="FaceTec_result_idscan_success_front_side_nfc_next_message">جزء الأمام من الهوية\nتم المسح</string>
-    <string name="FaceTec_result_idscan_success_nfc_message">تم مسح الهوية بنجاح</string>
+    <string name="FaceTec_result_idscan_success_back_side_message">تم مسح الوثيقة بنجاح</string>
+    <string name="FaceTec_result_idscan_success_back_side_nfc_next_message">جزء الخلف من الوثيقة\nتم المسح</string>
+    <string name="FaceTec_result_idscan_success_front_side_back_next_message">جزء الأمام من الوثيقة\nتم المسح</string>
+    <string name="FaceTec_result_idscan_success_front_side_message">تم مسح الوثيقة بنجاح</string>
+    <string name="FaceTec_result_idscan_success_front_side_nfc_next_message">جزء الأمام من الوثيقة\nتم المسح</string>
+    <string name="FaceTec_result_idscan_success_nfc_message">تم مسح الوثيقة بنجاح</string>
     <string name="FaceTec_result_idscan_success_passport_message">تم مسح جواز السفر بنجاح</string>
     <string name="FaceTec_result_idscan_success_passport_nfc_next_message">تم مسح جواز السفر</string>
     <string name="FaceTec_result_idscan_success_user_confirmation_message">تم مسح هوية الصورة بنجاح</string>
-    <string name="FaceTec_result_idscan_unsuccess_message">لم يتم مسح الهوية\nبشكل صحيح مع\nوجه المستخدم</string>
-    <string name="FaceTec_result_idscan_upload_message">جارٍ التحميل\nالهوية الممسوحة\nبتشفير</string>
+    <string name="FaceTec_result_idscan_unsuccess_message">لم يتم مسح الوثيقة\nبشكل صحيح مع\nوجه المستخدم</string>
+    <string name="FaceTec_result_idscan_upload_message">جارٍ التحميل\nالوثيقة الممسوحة\nبتشفير</string>
     <string name="FaceTec_result_nfc_upload_message">جارٍ التحميل\nتفاصيل NFC\nبتشفير</string>
     <string name="FaceTec_result_success_message">نجاح</string>
     <string name="FaceTec_retry_header">دعنا نحاول ذلك مرة أخرى</string>
@@ -116,8 +116,8 @@
     <string name="FaceTec_retry_instruction_message_1">اجعل تعابير وجهك طبيعية، بدون إبتسامة</string>
     <string name="FaceTec_retry_instruction_message_2">لا يوجد توهج أو إضاءة مفرطة</string>
     <string name="FaceTec_retry_instruction_message_3">الصورة غير واضحة جدًا، يرجى تنظيف الكاميرا</string>
-    <string name="FaceTec_retry_subheader_message">نحتاج إلى صورة سيلفي فيديو أوضح</string>
-    <string name="FaceTec_retry_your_image_label">السيلفي الخاص بك</string>
+    <string name="FaceTec_retry_subheader_message">نحتاج إلى صورة شخصية فيديو أوضح</string>
+    <string name="FaceTec_retry_your_image_label">الصورة الشخصية الخاصة بك</string>
     <string name="abc_action_bar_home_description">الانتقال إلى الصفحة الرئيسية</string>
     <string name="abc_action_bar_up_description">العودة للأعلى</string>
     <string name="abc_action_menu_overflow_description">المزيد من الخيارات</string>

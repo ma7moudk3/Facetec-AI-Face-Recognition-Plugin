@@ -1159,7 +1159,6 @@ public class ThemeHelpers {
             currentDynamicDimmingCustomization.getOvalCustomization().progressColor2 = Color.parseColor("#BF3BC371");
             // Cancel Button Customization
             currentDynamicDimmingCustomization.getCancelButtonCustomization().customImage = R.drawable.single_chevron_left_offwhite;
-
             // Guidance Customization -- Text Style Overrides
             // Ready Screen Header
             currentDynamicDimmingCustomization.getGuidanceCustomization().readyScreenHeaderTextColor = primaryColor;

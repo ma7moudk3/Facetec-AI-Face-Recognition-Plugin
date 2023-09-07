@@ -59,14 +59,14 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
         // In v9.2.2+, configure the messages that will be displayed to the User in each of the possible cases.
         // Based on the internal processing and decision logic about how the flow gets advanced, the FaceTec SDK will use the appropriate, configured message.
         FaceTecCustomization.setIDScanUploadMessageOverrides(
-                  langCode.equals("ar") ? "جاري رفع\n صورة الهوية\n مشفرة":"Uploading\nEncrypted\nID Scan", // Upload of ID front-side has started.
+                  langCode.equals("ar") ? "جاري رفع\nصورة الوثيقة مشفرة":"Uploading\nEncrypted\nID Scan", // Upload of ID front-side has started.
                 langCode.equals("ar") ? "جاري الرفع \n الاتصال بالانترنت بطيء": "Still Uploading...\nSlow Connection", // Upload of ID front-side is still uploading to Server after an extended period of time.
                 langCode.equals("ar") ? "تم الرفع بنجاح":"Upload Complete", // Upload of ID front-side to the Server is complete.
-                langCode.equals("ar") ? "جاري معالجة صورة الهوية": "Processing ID Scan", // Upload of ID front-side is complete and we are waiting for the Server to finish processing and respond.
-                langCode.equals("ar") ? "جاري رفع\nصورة الهوية الخلفية": "Uploading\nEncrypted\nBack of ID", // Upload of ID back-side has started.
+                langCode.equals("ar") ? "جاري معالجة صورة الوثيقة": "Processing ID Scan", // Upload of ID front-side is complete and we are waiting for the Server to finish processing and respond.
+                langCode.equals("ar") ? "جاري رفع\nصورة الوثيقة الخلفية": "Uploading\nEncrypted\nBack of ID", // Upload of ID back-side has started.
                 langCode.equals("ar") ?"جاري الرفع \n الاتصال بالانترنت بطيء":"Still Uploading...\nSlow Connection", // Upload of ID back-side is still uploading to Server after an extended period of time.
                 langCode.equals("ar") ? "تم الرفع بنجاح":"Upload Complete", // Upload of ID back-side to Server is complete.
-                langCode.equals("ar") ? "جاري معالجة صورة الهوية \nمن الأسفل": "Processing Back of ID", // Upload of ID back-side is complete and we are waiting for the Server to finish processing and respond.
+                langCode.equals("ar") ? "جاري معالجة صورة الوثيقة \nمن الأسفل": "Processing Back of ID", // Upload of ID back-side is complete and we are waiting for the Server to finish processing and respond.
                 langCode.equals("ar") ? "جاري الرفع..\nمعلوماتك المؤكدة":"Uploading\nYour Confirmed Info", // Upload of User Confirmed Info has started.
                 langCode.equals("ar") ?"جاري الرفع \n الاتصال بالانترنت بطيء":"Still Uploading...\nSlow Connection", // Upload of ID back-side is still uploading to Server after an extended period of time.
                 langCode.equals("ar") ? "تم الرفع بنجاح":"Upload Complete", // Upload of ID back-side to Server is complete.
@@ -75,7 +75,7 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
                 langCode.equals("ar") ?"جاري الرفع \n الاتصال بالانترنت بطيء":"Still Uploading...\nSlow Connection", // Upload of ID back-side is still uploading to Server after an extended period of time.
                 langCode.equals("ar") ?"تم الرفع بنجاح":"Upload Complete", // Upload of NFC Details to the Server is complete.
                 langCode.equals("ar") ?"جاري معالجة بيانات\nNFC": "Processing\nNFC Details", // Upload of NFC Details is complete and we are waiting for the Server to finish processing and respond.
-                langCode.equals("ar") ? "جاري رفع بيانات الهوية\nمشفرة":"Uploading Encrypted\nID Details", // Upload of ID Details has started.
+                langCode.equals("ar") ? "جاري رفع بيانات الوثيقة\nمشفرة":"Uploading Encrypted\nID Details", // Upload of ID Details has started.
                 langCode.equals("ar") ?"جاري الرفع \n الاتصال بالانترنت بطيء":"Still Uploading...\nSlow Connection", // Upload of ID back-side is still uploading to Server after an extended period of time.
                 langCode.equals("ar") ? "تم الرفع بنجاح":"Upload Complete", // Upload of ID back-side to Server is complete.
                 langCode.equals("ar") ? "جاري المعالجة..":"Processing" // Upload of User Confirmed Info is complete and we are waiting for the Server to finish processing and respond.
@@ -185,7 +185,7 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
 
                         // Demonstrates dynamically setting the Success Screen Message.
 
-                        FaceTecCustomization.overrideResultScreenSuccessMessage = langCode.equals("ar") ? "تم تأكيد أنك لست\nروبوت": "Liveness\nConfirmed";
+                        FaceTecCustomization.overrideResultScreenSuccessMessage = langCode.equals("ar") ? "تم التقاط الصورة الشخصية": "Selfie done";
 
                         // In v9.2.0+, simply pass in scanResultBlob to the proceedToNextStep function to advance the User flow.
                         // scanResultBlob is a proprietary, encrypted blob that controls the logic for what happens next for the User.
@@ -319,20 +319,20 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
                         // Based on the internal processing and decision logic about how the flow gets advanced, the FaceTec SDK will use the appropriate, configured message.
                         // Please note that this programmatic API overrides these same Strings that can also be set via our standard, non-programmatic Text Customization & Localization APIs.
                         FaceTecCustomization.setIDScanResultScreenMessageOverrides(
-                                langCode.equals("ar") ? "تم معالجة الهوية بنجاح": "ID Scan Complete", // Successful scan of ID front-side (ID Types with no back-side).
-                                langCode.equals("ar") ? "تم مسح الهوية\nمن الأعلى بنجاح": "Front of ID\nScanned", // Successful scan of ID front-side (ID Types that have a back-side).
-                                langCode.equals("ar") ? "تم مسح الهوية\nمن الأعلى بنجاح": "Front of ID\nScanned", // Successful scan of ID front-side (ID Types that have a back-side).
-                                langCode.equals("ar") ?"تم معالجة الهوية بنجاح":"ID Scan Complete", // Successful scan of the ID back-side (ID Types that do not have NFC).
-                                langCode.equals("ar") ?"تم مسح الهوية\nمن الأسفل":"Back of ID\nScanned", // Successful scan of the ID back-side (ID Types that do have NFC).
+                                langCode.equals("ar") ? "تم معالجة الوثيقة بنجاح": "ID Scan Complete", // Successful scan of ID front-side (ID Types with no back-side).
+                                langCode.equals("ar") ? "تم مسح الوثيقة\nمن الأعلى بنجاح": "Front of ID\nScanned", // Successful scan of ID front-side (ID Types that have a back-side).
+                                langCode.equals("ar") ? "تم مسح الوثيقة\nمن الأعلى بنجاح": "Front of ID\nScanned", // Successful scan of ID front-side (ID Types that have a back-side).
+                                langCode.equals("ar") ?"تم معالجة الوثيقة بنجاح":"ID Scan Complete", // Successful scan of the ID back-side (ID Types that do not have NFC).
+                                langCode.equals("ar") ?"تم مسح الوثيقة\nمن الأسفل":"Back of ID\nScanned", // Successful scan of the ID back-side (ID Types that do have NFC).
                                 langCode.equals("ar") ?"تم معالجة\nجواز السفر": "Passport Scan Complete", // Successful scan of a Passport that does not have NFC.
                                 langCode.equals("ar") ?"تم مسح جواز السفر":"Passport Scanned", // Successful scan of a Passport that does have NFC.
-                                langCode.equals("ar") ?"تم مسح صورة الهوية\nبنجاح": "Photo ID Scan\nComplete", // Successful upload of final IDScan containing User-Confirmed ID Text.
-                                langCode.equals("ar") ?"تم مسح صورة الهوية":"ID Scan Complete", // Successful upload of the scanned NFC chip information.
-                                langCode.equals("ar") ?"لم يتطابق الوجه مع الهوية\nبشكل كافي":"Face Didn't Match\nHighly Enough", // Case where a Retry is needed because the Face on the Photo ID did not Match the User's Face highly enough.
-                                langCode.equals("ar") ?"بيانات الهوية غير ظاهرة بشكل\nكافي": "ID Document\nNot Fully Visible", // Case where a Retry is needed because a Full ID was not detected with high enough confidence.
-                                langCode.equals("ar") ?"نص الهوية غير مقروء":"ID Text Not Legible", // Case where a Retry is needed because the OCR did not produce good enough results and the User should Retry with a better capture.
-                                langCode.equals("ar") ?"نوع الهوية غير متطابق\nالرجاء المحاولة لاحقًا":"ID Type Mismatch\nPlease Try Again", // Case where there is likely no OCR Template installed for the document the User is attempting to scan.
-                                langCode.equals("ar") ?"تم رفع بيانات\nالهوية":"ID Details\nUploaded" // Case where NFC Scan was skipped due to the user's interaction or an unexpected error.
+                                langCode.equals("ar") ?"تم مسح صورة الوثيقة\nبنجاح": "Photo ID Scan\nComplete", // Successful upload of final IDScan containing User-Confirmed ID Text.
+                                langCode.equals("ar") ?"تم مسح صورة الوثيقة":"ID Scan Complete", // Successful upload of the scanned NFC chip information.
+                                langCode.equals("ar") ?"لم يتطابق الوجه مع الوثيقة\nبشكل كافي":"Face Didn't Match\nHighly Enough", // Case where a Retry is needed because the Face on the Photo ID did not Match the User's Face highly enough.
+                                langCode.equals("ar") ?"بيانات الوثيقة غير ظاهرة بشكل\nكافي": "ID Document\nNot Fully Visible", // Case where a Retry is needed because a Full ID was not detected with high enough confidence.
+                                langCode.equals("ar") ?"نص الوثيقة غير مقروء":"ID Text Not Legible", // Case where a Retry is needed because the OCR did not produce good enough results and the User should Retry with a better capture.
+                                langCode.equals("ar") ?"نوع الوثيقة غير متطابق\nالرجاء المحاولة لاحقًا":"ID Type Mismatch\nPlease Try Again", // Case where there is likely no OCR Template installed for the document the User is attempting to scan.
+                                langCode.equals("ar") ?"تم رفع بيانات\nالوثيقة":"ID Details\nUploaded" // Case where NFC Scan was skipped due to the user's interaction or an unexpected error.
                         );
 
                         // In v9.2.0+, simply pass in scanResultBlob to the proceedToNextStep function to advance the User flow.

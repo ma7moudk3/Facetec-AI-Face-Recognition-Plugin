@@ -503,7 +503,7 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                                 // scanResultBlob is a proprietary, encrypted blob that controls the logic for what happens next for the User.
                                 //success = faceScanResultCallback.proceedToNextStep(scanResultBlob);
                             } else {
-                                pendingCallbackContext.success("error Not processed (UNEXPECTED response from API)");
+                                pendingCallbackContext.success("error Not processed (UNEXPECTED response from API): "+responseJSON);
                                 // CASE:  UNEXPECTED response from API.  Our Sample Code keys off a wasProcessed boolean on the root of the JSON object --> You define your own API contracts with yourself and may choose to do something different here based on the error.
                                 //faceScanResultCallback.cancel();
                             }
