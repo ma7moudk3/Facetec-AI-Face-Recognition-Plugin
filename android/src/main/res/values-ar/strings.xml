@@ -70,7 +70,7 @@
     <string name="FaceTec_idscan_ocr_confirmation_scroll_message">انزل للأسفل</string>
     <string name="FaceTec_idscan_review_id_back_instruction_message">تأكد من وضوح الصورة الخلفية وتمكّن منها</string>
     <string name="FaceTec_idscan_review_id_front_instruction_message">تأكد من وضوح الصورة الأمامية وتمكّن منها</string>
-    <string name="FaceTec_idscan_type_selection_header">تحضير لمسح\nالوثيقة الخاصة بك</string>
+    <string name="FaceTec_idscan_type_selection_header">اضغط متابعة للبدء بمسح\nالوثيقة الخاصة بك</string>
     <string name="FaceTec_initializing_camera">جارٍ تأمين إشارة الكاميرا</string>
     <string name="FaceTec_instructions_header_ready_1">استعد لالتقاط الصورة الشخصية\nالخاصة بك</string>
     <string name="FaceTec_instructions_header_ready_2">التقط صورة شخصية</string>
