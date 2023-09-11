@@ -73,7 +73,7 @@
     <string name="FaceTec_idscan_type_selection_header">اضغط متابعة للبدء بمسح الوثيقة الخاصة بك</string>
     <string name="FaceTec_initializing_camera">جاري تشغيل الكاميرا</string>
     <string name="FaceTec_instructions_header_ready_1">التقط صورة شخصية</string>
-    <string name="FaceTec_instructions_header_ready_2">التقط صورة شخصية</string>
+    <string name="FaceTec_instructions_header_ready_2"/>
     <string name="FaceTec_instructions_message_ready_1">أبقِ وجهك داخل الاطار بشكل صحيح</string>
     <string name="FaceTec_instructions_message_ready_2">اضغط ابدأ عندما تكون جاهزاً</string>
     <string name="FaceTec_internal_dev_mode_tag">هذا التطبيق في وضع التطوير</string>

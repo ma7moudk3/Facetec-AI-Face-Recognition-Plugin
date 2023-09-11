@@ -66,8 +66,8 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
                 langCode.equals("ar") ? "جاري رفع\nصورة الوثيقة الخلفية": "Uploading\nEncrypted\nBack of ID", // Upload of ID back-side has started.
                 langCode.equals("ar") ?"جاري الرفع \n الاتصال بالانترنت بطيء":"Still Uploading...\nSlow Connection", // Upload of ID back-side is still uploading to Server after an extended period of time.
                 langCode.equals("ar") ? "تم الرفع بنجاح":"Upload Complete", // Upload of ID back-side to Server is complete.
-                langCode.equals("ar") ? "جاري معالجة الوثيقة من الخلف": "Processing Back of ID", // Upload of ID back-side is complete and we are waiting for the Server to finish processing and respond.
-                langCode.equals("ar") ? "جاري الرفع..\nمعلوماتك المؤكدة":"Uploading\nYour Confirmed Info", // Upload of User Confirmed Info has started.
+                langCode.equals("ar") ? "جاري معالجة الوجه الخلفي للوثيقة": "Processing Back of ID", // Upload of ID back-side is complete and we are waiting for the Server to finish processing and respond.
+                langCode.equals("ar") ? "جاري رفع المعلومات":"Uploading\nYour Confirmed Info", // Upload of User Confirmed Info has started.
                 langCode.equals("ar") ?"جاري الرفع \n الاتصال بالانترنت بطيء":"Still Uploading...\nSlow Connection", // Upload of ID back-side is still uploading to Server after an extended period of time.
                 langCode.equals("ar") ? "تم الرفع بنجاح":"Upload Complete", // Upload of ID back-side to Server is complete.
                 langCode.equals("ar") ? "جاري المعالجة..":"Processing", // Upload of User Confirmed Info is complete and we are waiting for the Server to finish processing and respond.
@@ -320,10 +320,10 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
                         // Please note that this programmatic API overrides these same Strings that can also be set via our standard, non-programmatic Text Customization & Localization APIs.
                         FaceTecCustomization.setIDScanResultScreenMessageOverrides(
                                 langCode.equals("ar") ? "تم معالجة الوثيقة بنجاح": "ID Scan Complete", // Successful scan of ID front-side (ID Types with no back-side).
-                                langCode.equals("ar") ? "تم مسح الوثيقة من الأمام": "Front of ID\nScanned", // Successful scan of ID front-side (ID Types that have a back-side).
-                                langCode.equals("ar") ? "تم مسح الوثيقة من الأمام": "Front of ID\nScanned", // Successful scan of ID front-side (ID Types that have a back-side).
+                                langCode.equals("ar") ? "تم مسح الوجه الأمامي للوثيقة": "Front of ID\nScanned", // Successful scan of ID front-side (ID Types that have a back-side).
+                                langCode.equals("ar") ?"تم مسح الوجه الأمامي للوثيقة": "Front of ID\nScanned", // Successful scan of ID front-side (ID Types that have a back-side).
                                 langCode.equals("ar") ?"تم معالجة الوثيقة بنجاح":"ID Scan Complete", // Successful scan of the ID back-side (ID Types that do not have NFC).
-                                langCode.equals("ar") ?"تم مسح الوثيقة من الخلف":"Back of ID\nScanned", // Successful scan of the ID back-side (ID Types that do have NFC).
+                                langCode.equals("ar") ?"تم مسح الوجه الخلفي للوثيقة":"Back of ID\nScanned", // Successful scan of the ID back-side (ID Types that do have NFC).
                                 langCode.equals("ar") ?"تم معالجة\nجواز السفر": "Passport Scan Complete", // Successful scan of a Passport that does not have NFC.
                                 langCode.equals("ar") ?"تم مسح جواز السفر":"Passport Scanned", // Successful scan of a Passport that does have NFC.
                                 langCode.equals("ar") ?"تم مسح صورة الوثيقة\nبنجاح": "Photo ID Scan\nComplete", // Successful upload of final IDScan containing User-Confirmed ID Text.
