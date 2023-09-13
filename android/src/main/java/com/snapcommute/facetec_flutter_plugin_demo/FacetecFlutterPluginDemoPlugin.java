@@ -45,10 +45,11 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
     private MethodChannel channel;
     private String zoomServerBaseURL = "https://api.facetec.com/api/v3.1/biometrics";
     private static String TAG = "FaceTec";
-    // wrong key
-    //private String licenseKey = "d1lThcmc6tJy4SjN8pBkAzy7ennbAwCP";
-    // valid key
-     private String licenseKey = "drDxEKEZbySGfPtev0xfuW3lYWyK5IHe";
+    // Orange key
+    private String licenseKey = "d1lThcmc6tJy4SjN8pBkAzy7ennbAwCP";
+    //private String licenseKey = "drDxEKEZbySGfPtev0xfuW3lYWyK5IHe";
+    // Mahmoud key
+    // private String licenseKey = "drDxEKEZbySGfPtev0xfuW3lYWyK5IHe";
     private String publicKey =
             "-----BEGIN PUBLIC KEY-----\n" +
                     "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5PxZ3DLj+zP6T6HFgzzk\n" +
@@ -60,7 +61,7 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                     "8QIDAQAB\n" +
                     "-----END PUBLIC KEY-----";
 
-    private String productionKeyText = "";
+    private String productionKeyText = "0030460221009192a114e837dbdbfee45e2c0414d693e88775117fdac12fa6ca23122d583f43022100c96d142f4ef3a11d0525b0af202701d5f1ba74f9cc5da21e73e7692d90643d7b";
     private static Result pendingCallbackContext = null;
     private String errorMessages = "";
     private String langCode = "ar";
@@ -98,12 +99,19 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                     productionKeyText = call.argument("productionKeyText");
                     // Toast.makeText(context,"This is a Demo Version",Toast.LENGTH_LONG).show();
                     if (productionMode) {
+
+                        Log.v(
+                                TAG, "Production "+ productionKeyText);
+                        Log.e(
+                                TAG, " FaceTecSDK.initializeInProductionMode(productionKeyText:  "+productionKeyText + " ," +  "licenseKey: "+ licenseKey + ", "+"publicKey:" + publicKey);
+
                         FaceTecSDK.initializeInProductionMode(context, productionKeyText, licenseKey, publicKey, new FaceTecSDK.InitializeCallback() {
                             @Override
                             public void onCompletion(final boolean successful) {
+                                Log.v( TAG, "onCompletion Successful: "+ successful);
                                 if (successful) {
                                     Log.d(TAG, "Initialization Successful.");
-                                    ThemeHelpers.setAppTheme(context, "Pseudo-Fullscreen",langCode);
+                                    ThemeHelpers.setAppTheme(context, "Pseudo-Fullscreen", langCode);
                                     result.success("successinitialized");
                                 } else {
                                     result.success("Initialization failed (Check Your Licence Key)");
@@ -120,7 +128,7 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                             public void onCompletion(final boolean successful) {
                                 if (successful) {
                                     Log.d(TAG, "Initialization Successful.");
-                                    ThemeHelpers.setAppTheme(context, "Pseudo-Fullscreen",langCode);
+                                    ThemeHelpers.setAppTheme(context, "Pseudo-Fullscreen", langCode);
 
                                     result.success("successinitialized");
                                 } else {
@@ -227,7 +235,7 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                 break;
             case "setTheme":
                 if (call.arguments.toString().length() > 0) {
-                    ThemeHelpers.setAppTheme(context, call.arguments.toString(),langCode);
+                    ThemeHelpers.setAppTheme(context, call.arguments.toString(), langCode);
                     result.success("successTheme Set");
                 } else {
                     result.success("errorNo server url Shared");
@@ -503,7 +511,7 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                                 // scanResultBlob is a proprietary, encrypted blob that controls the logic for what happens next for the User.
                                 //success = faceScanResultCallback.proceedToNextStep(scanResultBlob);
                             } else {
-                                pendingCallbackContext.success("error Not processed (UNEXPECTED response from API): "+responseJSON);
+                                pendingCallbackContext.success("error Not processed (UNEXPECTED response from API): " + responseJSON);
                                 // CASE:  UNEXPECTED response from API.  Our Sample Code keys off a wasProcessed boolean on the root of the JSON object --> You define your own API contracts with yourself and may choose to do something different here based on the error.
                                 //faceScanResultCallback.cancel();
                             }

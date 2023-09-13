@@ -67,7 +67,7 @@ public class PhotoIDScanProcessor extends Processor implements FaceTecIDScanProc
                 langCode.equals("ar") ?"جاري الرفع \n الاتصال بالانترنت بطيء":"Still Uploading...\nSlow Connection", // Upload of ID back-side is still uploading to Server after an extended period of time.
                 langCode.equals("ar") ?"تم الرفع بنجاح":"Upload Complete", // Upload of NFC Details to the Server is complete.
                 langCode.equals("ar") ?"جاري معالجة بيانات\nNFC": "Processing\nNFC Details", // Upload of NFC Details is complete and we are waiting for the Server to finish processing and respond.
-                langCode.equals("ar") ? "جاري رفع بيانات الوثيقة\nمشفرة":"Uploading Encrypted\nID Details", // Upload of ID Details has started.
+                langCode.equals("ar") ? "جاري رفع بيانات الوثيقة":"Uploading Encrypted\nID Details", // Upload of ID Details has started.
                 langCode.equals("ar") ?"جاري الرفع \n الاتصال بالانترنت بطيء":"Still Uploading...\nSlow Connection", // Upload of ID back-side is still uploading to Server after an extended period of time.
                 langCode.equals("ar") ? "تم الرفع بنجاح":"Upload Complete", // Upload of ID back-side to Server is complete.
                 langCode.equals("ar") ? "جاري المعالجة..":"Processing" // Upload of User Confirmed Info is complete and we are waiting for the Server to finish processing and respond.
