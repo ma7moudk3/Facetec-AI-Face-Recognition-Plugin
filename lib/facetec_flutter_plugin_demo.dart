@@ -27,10 +27,15 @@ class FacetecFlutterPluginDemo {
   }
 
   /// This function needs to be called before using any FaceTec SDK functionality
-  static Future<String> initialize(String appToken, bool productionMode,
-      String productionKeyText, String langCode) async {
+  static Future<String> initialize(
+      {
+       required String licenseKey,
+        required bool productionMode,
+        required String productionKeyText,
+        required String langCode,
+      }) async {
     final String result = await _channel.invokeMethod('initialize', {
-      'appToken': appToken,
+      'appToken': licenseKey,
       'productionMode': productionMode,
       'productionKeyText': productionKeyText,
       "langCode": langCode

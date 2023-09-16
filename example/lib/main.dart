@@ -90,8 +90,8 @@ class _MyAppState extends State<MyApp> {
             ),
             actions: <Widget>[
               TextButton(
-                style:TextButton.styleFrom(backgroundColor: Colors.red,
-                primary: Colors.white),
+                style: TextButton.styleFrom(
+                    backgroundColor: Colors.red, primary: Colors.white),
                 child: Text('CANCEL'),
                 onPressed: () {
                   setState(() {
@@ -100,8 +100,8 @@ class _MyAppState extends State<MyApp> {
                 },
               ),
               TextButton(
-                style:TextButton.styleFrom(backgroundColor: Colors.red,
-                    primary: Colors.white),
+                style: TextButton.styleFrom(
+                    backgroundColor: Colors.red, primary: Colors.white),
                 child: Text('OK'),
                 onPressed: () {
                   setState(() {
@@ -117,8 +117,7 @@ class _MyAppState extends State<MyApp> {
 
   final ButtonStyle flatButtonStyle = TextButton.styleFrom(
     primary: Colors.white,
-    shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10)),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
     backgroundColor: Colors.lightBlue,
   );
 
@@ -180,7 +179,10 @@ class _MyAppState extends State<MyApp> {
                         }
                         String initializeMsg =
                             await FacetecFlutterPluginDemo.initialize(
-                                appToken, false, "","ar");
+                                licenseKey: appToken,
+                                langCode: "en",
+                                productionKeyText: "",
+                                productionMode: false);
                         if (initializeMsg.startsWith("success")) {
                           initialized = true;
                           addMessage(initializeMsg.substring(7), context);
@@ -290,7 +292,6 @@ class _MyAppState extends State<MyApp> {
                       onPressed: () {
                         if (initialized) {
                           showSimpleDialogIDCheck(context, false);
-
                         } else {
                           showToast(context, "SDK not initialized");
                         }

@@ -46,10 +46,10 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
     private String zoomServerBaseURL = "https://api.facetec.com/api/v3.1/biometrics";
     private static String TAG = "FaceTec";
     // Orange key
-    private String licenseKey = "d1lThcmc6tJy4SjN8pBkAzy7ennbAwCP";
-    //private String licenseKey = "drDxEKEZbySGfPtev0xfuW3lYWyK5IHe";
+    //private String licenseKey = "d1lThcmc6tJy4SjN8pBkAzy7ennbAwCP";
+    private String licenseKey = "df8r7HTSHOIejaiSyfjTg3iV0ywOyEBk";
     // Mahmoud key
-    // private String licenseKey = "drDxEKEZbySGfPtev0xfuW3lYWyK5IHe";
+     //private String licenseKey = "drDxEKEZbySGfPtev0xfuW3lYWyK5IHe";
     private String publicKey =
             "-----BEGIN PUBLIC KEY-----\n" +
                     "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5PxZ3DLj+zP6T6HFgzzk\n" +
@@ -114,7 +114,11 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                                     ThemeHelpers.setAppTheme(context, "Pseudo-Fullscreen", langCode);
                                     result.success("successinitialized");
                                 } else {
-                                    result.success("Initialization failed (Check Your Licence Key)");
+                                 //   FaceTecSDK.getStatus(context).toString();
+                                   // result.success("Initialization failed (Check Your Licence Key)");
+                                    result.success( FaceTecSDK.getStatus(context).toString());
+                                    Log.d(TAG, FaceTecSDK.getStatus(context).toString());
+
                                 }
 
                                 // Displays the FaceTec SDK Status to text field.
@@ -145,9 +149,10 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                 }
                 break;
             case "setPublicKey":
-                Log.d(TAG, call.arguments.toString());
                 if (call.arguments.toString().length() > 0) {
                     publicKey = call.arguments.toString();
+                    Log.v(TAG, "set publicKey: " + publicKey);
+
                     //Config.DeviceKeyIdentifier=publicKey;
                     //ZoomGlobalState.PublicFaceMapEncryptionKey = publicKey;
                     result.success("successPublic Key Set");
@@ -158,6 +163,7 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
             case "setServerUrl":
 
                 if (call.arguments.toString().length() > 0) {
+                    Log.v(TAG, "set zoomServerBaseURL: " + zoomServerBaseURL);
                     zoomServerBaseURL = call.arguments.toString();
                     //Config.BaseURL=zoomServerBaseURL;
                     //ZoomGlobalState.ZoomServerBaseURL = zoomServerBaseURL;
