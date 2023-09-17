@@ -113,8 +113,8 @@
     <string name="FaceTec_retry_ideal_image_label">Ideal Pose</string>
     <string name="FaceTec_retry_instruction_message_1">Neutral Expression, No Smiling</string>
     <string name="FaceTec_retry_instruction_message_2">Please be in a place with suitable lighting</string>
-    <string name="FaceTec_retry_instruction_message_3">Your Selfie isn\'t clear , Please try again</string>
-    <string name="FaceTec_retry_subheader_message">Your Selfie isn\'t clear , Please try again</string>
+    <string name="FaceTec_retry_instruction_message_3">Your Selfie isn\'t clear</string>
+    <string name="FaceTec_retry_subheader_message">Your Selfie isn\'t clear</string>
     <string name="FaceTec_retry_your_image_label">Your Selfie</string>
     <string name="abc_action_bar_home_description">Go Home</string>
     <string name="abc_action_bar_up_description">Go up</string>

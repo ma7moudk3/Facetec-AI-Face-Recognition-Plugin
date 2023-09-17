@@ -115,8 +115,8 @@
 
     <string name="FaceTec_retry_instruction_message_1">اجعل تعابير وجهك طبيعية، بدون إبتسامة</string>
     <string name="FaceTec_retry_instruction_message_2">الرجاء التواجد في مكان ذو اضاءة ملائمة</string>
-    <string name="FaceTec_retry_instruction_message_3">الصورة الشخصية غير واضحة جداً ، الرجاء المحاولة مرة اخرى </string>
-    <string name="FaceTec_retry_subheader_message">الصورة الشخصية غير واضحة جداً ، الرجاء المحاولة مرة اخرى </string>
+    <string name="FaceTec_retry_instruction_message_3">الصورة الشخصية غير واضحة</string>
+    <string name="FaceTec_retry_subheader_message">الصورة الشخصية غير واضحة جداً</string>
     <string name="FaceTec_retry_your_image_label">الصورة الشخصية الخاصة بك</string>
     <string name="abc_action_bar_home_description">العودة  إلى الصفحة الرئيسية</string>
     <string name="abc_action_bar_up_description">العودة للأعلى</string>
