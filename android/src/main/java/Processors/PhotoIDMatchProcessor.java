@@ -142,6 +142,7 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
                 .header("X-Device-Key", deviceKeyId)
                 .header("User-Agent", FaceTecSDK.createFaceTecAPIUserAgentString(sessionResult.getSessionId()))
                 .header("X-User-Agent", FaceTecSDK.createFaceTecAPIUserAgentString(sessionResult.getSessionId()))
+                .header("apiKey", "JP2ZFzsEpJIaFI02Ww7Xfq2rqConf3Bi")
 
                 //
                 // Part 7:  Demonstrates updating the Progress Bar based on the progress event.
@@ -275,6 +276,7 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
                 .header("X-Device-Key", deviceKeyId)
                 .header("User-Agent", FaceTecSDK.createFaceTecAPIUserAgentString(idScanResult.getSessionId()))
                 .header("X-User-Agent", FaceTecSDK.createFaceTecAPIUserAgentString(idScanResult.getSessionId()))
+                .header("apiKey", "JP2ZFzsEpJIaFI02Ww7Xfq2rqConf3Bi")
 
                 //
                 // Part 14:  Demonstrates updating the Progress Bar based on the progress event.

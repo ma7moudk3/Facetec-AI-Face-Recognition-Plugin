@@ -114,6 +114,7 @@ public class PhotoIDScanProcessor extends Processor implements FaceTecIDScanProc
         try {
             parameters.put("idScan", idScanResult.getIDScanBase64());
 
+
             ArrayList<String> frontImagesCompressedBase64 = idScanResult.getFrontImagesCompressedBase64();
             ArrayList<String> backImagesCompressedBase64 = idScanResult.getBackImagesCompressedBase64();
             if (frontImagesCompressedBase64.size() > 0) {
@@ -132,12 +133,15 @@ public class PhotoIDScanProcessor extends Processor implements FaceTecIDScanProc
         //
         // Part 5:  Make the Networking Call to Your Servers.  Below is just example code, you are free to customize based on how your own API works.
         //
+        Log.d("FaceTec ُEndPoint", "/idscan-only.");
+
         okhttp3.Request request = new okhttp3.Request.Builder()
                 .url(baseUrl + "/idscan-only")
                 .header("Content-Type", "application/json")
                 .header("X-Device-Key", deviceKeyId)
                 .header("User-Agent", FaceTecSDK.createFaceTecAPIUserAgentString(idScanResult.getSessionId()))
                 .header("X-User-Agent", FaceTecSDK.createFaceTecAPIUserAgentString(idScanResult.getSessionId()))
+                .header("apiKey", "JP2ZFzsEpJIaFI02Ww7Xfq2rqConf3Bi")
 
                 //
                 // Part 6:  Demonstrates updating the Progress Bar based on the progress event.

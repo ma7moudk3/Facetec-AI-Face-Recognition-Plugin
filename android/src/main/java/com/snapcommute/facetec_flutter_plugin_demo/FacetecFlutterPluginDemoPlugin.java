@@ -120,7 +120,6 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                                     Log.d(TAG, FaceTecSDK.getStatus(context).toString());
 
                                 }
-
                                 // Displays the FaceTec SDK Status to text field.
 
                             }
@@ -163,7 +162,7 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
             case "setServerUrl":
 
                 if (call.arguments.toString().length() > 0) {
-                    Log.v(TAG, "set zoomServerBaseURL: " + zoomServerBaseURL);
+                    Log.v(TAG, "set zoomServerBaseURL: " + call.arguments.toString());
                     zoomServerBaseURL = call.arguments.toString();
                     //Config.BaseURL=zoomServerBaseURL;
                     //ZoomGlobalState.ZoomServerBaseURL = zoomServerBaseURL;
@@ -313,9 +312,15 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
 
 
         // Do the network call and handle result
+        Log.d("FaceTec EndPoint", "before /session-token");
+        Log.d("FaceTec EndPoint", "X-Device-Key "+licenseKey);
+        Log.d("FaceTec EndPoint", "User-Agent "+FaceTecSDK.createFaceTecAPIUserAgentString(""));
+        Log.d("FaceTec EndPoint", "apiKey JP2ZFzsEpJIaFI02Ww7Xfq2rqConf3Bi");
+
         okhttp3.Request request = new okhttp3.Request.Builder()
                 .header("X-Device-Key", licenseKey)
                 .header("User-Agent", FaceTecSDK.createFaceTecAPIUserAgentString(""))
+                .header("apiKey", "JP2ZFzsEpJIaFI02Ww7Xfq2rqConf3Bi")
                 .url(zoomServerBaseURL + "/session-token")
                 .get()
                 .build();
@@ -351,6 +356,8 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                 }
             }
         });
+        Log.d("FaceTec EndPoint", "after /session-token");
+
     }
 
     @Override
@@ -476,6 +483,7 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                         .url(zoomServerBaseURL + "/match-2d-2d")
                         .header("Content-Type", "application/json")
                         .header("X-Device-Key", licenseKey)
+                        .header("apiKey", "JP2ZFzsEpJIaFI02Ww7Xfq2rqConf3Bi")
 
                         //
                         // Part 7:  Demonstrates updating the Progress Bar based on the progress event.
