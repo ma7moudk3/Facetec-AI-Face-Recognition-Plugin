@@ -70,7 +70,6 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
     public Processor latestProcessor;
     public String[] base64Image;
     public String customID;
-    public boolean customIDCheck = false;
 
     @Override
     public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
@@ -112,7 +111,7 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                                 if (successful) {
                                     Log.d(TAG, "Initialization Successful.");
                                     ThemeHelpers.setAppTheme(context, "Pseudo-Fullscreen", langCode);
-                                    result.success("successinitialized");
+                                    result.success("success Initialized");
                                 } else {
                                  //   FaceTecSDK.getStatus(context).toString();
                                    // result.success("Initialization failed (Check Your Licence Key)");
@@ -133,9 +132,9 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                                     Log.d(TAG, "Initialization Successful.");
                                     ThemeHelpers.setAppTheme(context, "Pseudo-Fullscreen", langCode);
 
-                                    result.success("successinitialized");
+                                    result.success("success Initialized");
                                 } else {
-                                    result.success("Initialization failed (Check Your Licence Key)");
+                                    result.success(FaceTecSDK.getStatus(context).toString());
                                 }
 
                                 // Displays the FaceTec SDK Status to text field.
@@ -164,19 +163,10 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                 if (call.arguments.toString().length() > 0) {
                     Log.v(TAG, "set zoomServerBaseURL: " + call.arguments.toString());
                     zoomServerBaseURL = call.arguments.toString();
-                    //Config.BaseURL=zoomServerBaseURL;
-                    //ZoomGlobalState.ZoomServerBaseURL = zoomServerBaseURL;
                     result.success("successServer url Set");
                 } else {
                     result.success("errorNo server url Shared");
                 }
-
-                break;
-            case "enroll":
-                result.success("errorFunctionality only available in full version of plugin. Please contact plugins@snapcommute.com for further details!");
-                break;
-            case "authenticate":
-                result.success("errorFunctionality only available in full version of plugin. Please contact plugins@snapcommute.com for further details!");
                 break;
             case "verify":
                 getSessionToken(new SessionTokenCallback() {
@@ -235,8 +225,6 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                         });
                     }
                 });
-
-
                 break;
             case "setTheme":
                 if (call.arguments.toString().length() > 0) {
@@ -252,12 +240,6 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                 break;
             case "getSdkStatus":
                 result.success("success" + getSdkStatusString());
-                break;
-            case "getUserEnrollmentStatus":
-                result.success("errorFunctionality only available in full version of plugin. Please contact plugins@snapcommute.com for further details!");
-                break;
-            case "deleteEnrollment":
-                result.success("errorFunctionality only available in full version of plugin. Please contact plugins@snapcommute.com for further details!");
                 break;
             default:
                 result.notImplemented();
@@ -343,6 +325,9 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                 response.body().close();
                 try {
                     JSONObject responseJSON = new JSONObject(responseString);
+                    Log.d("SessionTokenResponse", responseJSON.toString());
+
+
                     if (responseJSON.has("sessionToken")) {
                         //utils.hideSessionTokenConnectionText();
                         sessionTokenCallback.onSessionTokenReceived(responseJSON.getString("sessionToken"));
@@ -373,18 +358,13 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
 
         // At this point, you have already handled all results in your Processor code.
         if (!this.latestProcessor.isSuccess()) {
-            // Reset the enrollment identifier.
-            //String latestExternalDatabaseRefID = "";
-            Log.d("isSuccess", "not isSuccess");
+
+            Log.d("FaceTec", "isSuccess = false" + this.latestProcessor.getErrorMessage());
             //Log.d("isSuccess",this.latestProcessor.errorMessage);
             if (!this.latestProcessor.getErrorMessage().equals("")) {
                 pendingCallbackContext.success("error" + this.latestProcessor.getErrorMessage());
             }
-//            else {
-//                pendingCallbackContext.success("errorresult error");
-//            }
         } else {
-            if (!customIDCheck) {
                 base64Image = latestProcessor.getBase64Images();
                 if (latestProcessor.getDocumentData().equals("")) {
                     JSONObject scannedDocumentDataResult = new JSONObject();
@@ -424,7 +404,6 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    customIDCheck = true;
                     latestProcessor = null;
                     pendingCallbackContext.success(scannedDocumentDataResult.toString());
 
@@ -465,88 +444,10 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    customIDCheck = true;
                     latestProcessor = null;
                     pendingCallbackContext.success(scannedDocumentDataResult.toString());
                 }
-            } else {
-                JSONObject parameters = new JSONObject();
-                try {
-                    parameters.put("image0", customID);
-                    parameters.put("image1", latestProcessor.getBase64Images()[1]);
-                    parameters.put("minMatchLevel", 3);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    Log.d("FaceTecSDKSampleApp", "Exception raised while attempting to create JSON payload for upload.");
-                }
-                okhttp3.Request request = new okhttp3.Request.Builder()
-                        .url(zoomServerBaseURL + "/match-2d-2d")
-                        .header("Content-Type", "application/json")
-                        .header("X-Device-Key", licenseKey)
-                        .header("apiKey", "JP2ZFzsEpJIaFI02Ww7Xfq2rqConf3Bi")
 
-                        //
-                        // Part 7:  Demonstrates updating the Progress Bar based on the progress event.
-                        //
-                        .post(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), parameters.toString()))
-                        .build();
-                NetworkingHelpers.getApiClient().newCall(request).enqueue(new Callback() {
-                    @Override
-                    public void onResponse(@NonNull Call call, @NonNull okhttp3.Response response) throws IOException {
-
-                        //
-                        // Part 6:  In our Sample, we evaluate a boolean response and treat true as was successfully processed and should proceed to next step,
-                        // and handle all other responses by cancelling out.
-                        // You may have different paradigms in your own API and are free to customize based on these.
-                        //
-
-                        String responseString = response.body().string();
-                        Log.v("responseString", responseString);
-
-                        response.body().close();
-                        try {
-                            JSONObject responseJSON = new JSONObject(responseString);
-                            Log.v("responseJSON", responseJSON.toString());
-
-                            boolean wasProcessed = responseJSON.getBoolean("success");
-                            Log.v("responseJSON", responseJSON.toString());
-
-                            //String status = responseJSON.getString("status");
-                            //result.success("successstatus");
-                            // In v9.2.0+, we key off a new property called wasProcessed to determine if we successfully processed the Session result on the Server.
-                            // Device SDK UI flow is now driven by the proceedToNextStep function, which should receive the scanResultBlob from the Server SDK response.
-                            if (wasProcessed) {
-                                base64Image = latestProcessor.getBase64Images();
-                                pendingCallbackContext.success("successmatchLevel:" + responseJSON.getInt("matchLevel") + "documentData:" + latestProcessor.getDocumentData());
-                                // Demonstrates dynamically setting the Success Screen Message.
-                                //FaceTecCustomization.overrideResultScreenSuccessMessage = "Authenticated";
-
-                                // In v9.2.0+, simply pass in scanResultBlob to the proceedToNextStep function to advance the User flow.
-                                // scanResultBlob is a proprietary, encrypted blob that controls the logic for what happens next for the User.
-                                //success = faceScanResultCallback.proceedToNextStep(scanResultBlob);
-                            } else {
-                                pendingCallbackContext.success("error Not processed (UNEXPECTED response from API): " + responseJSON);
-                                // CASE:  UNEXPECTED response from API.  Our Sample Code keys off a wasProcessed boolean on the root of the JSON object --> You define your own API contracts with yourself and may choose to do something different here based on the error.
-                                //faceScanResultCallback.cancel();
-                            }
-                        } catch (JSONException e) {
-                            // CASE:  Parsing the response into JSON failed --> You define your own API contracts with yourself and may choose to do something different here based on the error.  Solid server-side code should ensure you don't get to this case.
-                            e.printStackTrace();
-                            Log.d("FaceTecSDKSampleApp", "Exception raised while attempting to parse JSON result.");
-                            //faceScanResultCallback.cancel();
-                            pendingCallbackContext.success("json parsing exception (Parsing the response into JSON failed)");
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(@NonNull Call call, IOException e) {
-                        // CASE:  Network Request itself is erroring --> You define your own API contracts with yourself and may choose to do something different here based on the error.
-                        Log.d("FaceTecSDKSampleApp", "Exception raised while attempting HTTPS call.");
-                        //faceScanResultCallback.cancel();
-                        pendingCallbackContext.success("errorHTTP call error (Network Request itself is erroring)");
-                    }
-                });
-            }
         }
         return true;
     }

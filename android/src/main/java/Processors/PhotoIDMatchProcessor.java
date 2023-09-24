@@ -176,7 +176,7 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
                 response.body().close();
                 try {
                     JSONObject responseJSON = new JSONObject(responseString);
-                    Log.d("responseJSON", "onResponse: " + responseJSON.toString());
+                    Log.d("FaceTec", "onResponse: " + responseJSON.toString());
                     boolean wasProcessed = responseJSON.getBoolean("wasProcessed");
                     String scanResultBlob = responseJSON.getString("scanResultBlob");
 
@@ -247,7 +247,9 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
         JSONObject parameters = new JSONObject();
         try {
             parameters.put("externalDatabaseRefID", externalDatabaseRefID);
+
             parameters.put("idScan", idScanResult.getIDScanBase64());
+
             parameters.put("minMatchLevel", minMatchLevel);
 
             ArrayList<String> frontImagesCompressedBase64 = idScanResult.getFrontImagesCompressedBase64();
@@ -309,6 +311,7 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
                 try {
                     JSONObject responseJSON = new JSONObject(responseString);
                     documentData = responseJSON.toString();
+                    Log.v("FaceTec",documentData);
 
                     boolean wasProcessed = responseJSON.getBoolean("wasProcessed");
                     String scanResultBlob = responseJSON.getString("scanResultBlob");

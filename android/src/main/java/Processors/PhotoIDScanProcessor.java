@@ -143,9 +143,6 @@ public class PhotoIDScanProcessor extends Processor implements FaceTecIDScanProc
                 .header("X-User-Agent", FaceTecSDK.createFaceTecAPIUserAgentString(idScanResult.getSessionId()))
                 .header("apiKey", "JP2ZFzsEpJIaFI02Ww7Xfq2rqConf3Bi")
 
-                //
-                // Part 6:  Demonstrates updating the Progress Bar based on the progress event.
-                //
                 .post(new ProgressRequestBody(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), parameters.toString()),
                         new ProgressRequestBody.Listener() {
                             @Override
@@ -174,6 +171,7 @@ public class PhotoIDScanProcessor extends Processor implements FaceTecIDScanProc
                 response.body().close();
                 try {
                     JSONObject responseJSON = new JSONObject(responseString);
+                    Log.v("FaceTec EndPoint", responseJSON.toString());
                     documentData = responseJSON.toString();
                     boolean wasProcessed = responseJSON.getBoolean("wasProcessed");
                     String scanResultBlob = responseJSON.getString("scanResultBlob");
