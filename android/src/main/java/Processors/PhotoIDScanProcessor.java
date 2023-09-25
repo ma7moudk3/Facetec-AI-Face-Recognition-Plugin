@@ -41,13 +41,15 @@ public class PhotoIDScanProcessor extends Processor implements FaceTecIDScanProc
     public String errorMessage = "";
     public String documentData = "";
     public String langCode = "ar";
+    public String apiKey = "";
 
-    public PhotoIDScanProcessor(String sessionToken, Context context, String deviceKeyId, String baseUrl, String langCode) {
+    public PhotoIDScanProcessor(String sessionToken, Context context, String deviceKeyId, String baseUrl, String langCode, String apiKey) {
         //this.sampleAppActivity = (FaceTecSessionActivity) context;
         this.deviceKeyId = deviceKeyId;
         this.baseUrl = baseUrl;
         this.langCode = langCode;
         this.base64Image = new String[]{"", "", ""};
+        this.apiKey = apiKey;
         // In v9.2.2+, configure the messages that will be displayed to the User in each of the possible cases.
         // Based on the internal processing and decision logic about how the flow gets advanced, the FaceTec SDK will use the appropriate, configured message.
         FaceTecCustomization.setIDScanUploadMessageOverrides(
@@ -141,7 +143,7 @@ public class PhotoIDScanProcessor extends Processor implements FaceTecIDScanProc
                 .header("X-Device-Key", deviceKeyId)
                 .header("User-Agent", FaceTecSDK.createFaceTecAPIUserAgentString(idScanResult.getSessionId()))
                 .header("X-User-Agent", FaceTecSDK.createFaceTecAPIUserAgentString(idScanResult.getSessionId()))
-                .header("apiKey", "JP2ZFzsEpJIaFI02Ww7Xfq2rqConf3Bi")
+                .header("apiKey", this.apiKey)
 
                 .post(new ProgressRequestBody(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), parameters.toString()),
                         new ProgressRequestBody.Listener() {

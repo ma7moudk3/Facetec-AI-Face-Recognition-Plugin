@@ -45,11 +45,8 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
     private MethodChannel channel;
     private String zoomServerBaseURL = "https://api.facetec.com/api/v3.1/biometrics";
     private static String TAG = "FaceTec";
-    // Orange key
-    //private String licenseKey = "d1lThcmc6tJy4SjN8pBkAzy7ennbAwCP";
-    private String licenseKey = "df8r7HTSHOIejaiSyfjTg3iV0ywOyEBk";
-    // Mahmoud key
-     //private String licenseKey = "drDxEKEZbySGfPtev0xfuW3lYWyK5IHe";
+    private String licenseKey = "dgGfMVINPC0AspjYhG2ircbdjAqFrXQB";
+    private String apiKey = "";
     private String publicKey =
             "-----BEGIN PUBLIC KEY-----\n" +
                     "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5PxZ3DLj+zP6T6HFgzzk\n" +
@@ -83,8 +80,10 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
         switch (call.method) {
             case "initialize":
                 if (call.arguments.toString().length() > 0) {
-                    // licenseKey = call.argument("appToken");
+                    licenseKey = call.argument("licenseKey");
                     boolean productionMode = Boolean.TRUE.equals(call.argument("productionMode"));
+                    apiKey = call.argument("apiKey");
+
                     langCode = call.argument("langCode");
                     Log.d(TAG, "onMethodCall: langCode: " + langCode);
                     // Override application language with the selected locale
@@ -100,22 +99,22 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                     if (productionMode) {
 
                         Log.v(
-                                TAG, "Production "+ productionKeyText);
+                                TAG, "Production " + productionKeyText);
                         Log.e(
-                                TAG, " FaceTecSDK.initializeInProductionMode(productionKeyText:  "+productionKeyText + " ," +  "licenseKey: "+ licenseKey + ", "+"publicKey:" + publicKey);
+                                TAG, " FaceTecSDK.initializeInProductionMode(productionKeyText:  " + productionKeyText + " ," + "licenseKey: " + licenseKey + ", " + "publicKey:" + publicKey);
 
                         FaceTecSDK.initializeInProductionMode(context, productionKeyText, licenseKey, publicKey, new FaceTecSDK.InitializeCallback() {
                             @Override
                             public void onCompletion(final boolean successful) {
-                                Log.v( TAG, "onCompletion Successful: "+ successful);
+                                Log.v(TAG, "onCompletion Successful: " + successful);
                                 if (successful) {
                                     Log.d(TAG, "Initialization Successful.");
                                     ThemeHelpers.setAppTheme(context, "Pseudo-Fullscreen", langCode);
                                     result.success("success Initialized");
                                 } else {
-                                 //   FaceTecSDK.getStatus(context).toString();
-                                   // result.success("Initialization failed (Check Your Licence Key)");
-                                    result.success( FaceTecSDK.getStatus(context).toString());
+                                    //   FaceTecSDK.getStatus(context).toString();
+                                    // result.success("Initialization failed (Check Your Licence Key)");
+                                    result.success(FaceTecSDK.getStatus(context).toString());
                                     Log.d(TAG, FaceTecSDK.getStatus(context).toString());
 
                                 }
@@ -192,7 +191,7 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                         new Handler(Looper.getMainLooper()).post(new Runnable() {
                             @Override
                             public void run() {
-                                latestProcessor = new PhotoIDMatchProcessor(sessionToken, activity, licenseKey, zoomServerBaseURL, langCode);
+                                latestProcessor = new PhotoIDMatchProcessor(sessionToken, activity, licenseKey, zoomServerBaseURL, langCode, apiKey);
 
                             }
                         });
@@ -220,7 +219,7 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                         new Handler(Looper.getMainLooper()).post(new Runnable() {
                             @Override
                             public void run() {
-                                latestProcessor = new PhotoIDScanProcessor(sessionToken, activity, licenseKey, zoomServerBaseURL, langCode);
+                                latestProcessor = new PhotoIDScanProcessor(sessionToken, activity, licenseKey, zoomServerBaseURL, langCode,apiKey);
                             }
                         });
                     }
@@ -295,14 +294,14 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
 
         // Do the network call and handle result
         Log.d("FaceTec EndPoint", "before /session-token");
-        Log.d("FaceTec EndPoint", "X-Device-Key "+licenseKey);
-        Log.d("FaceTec EndPoint", "User-Agent "+FaceTecSDK.createFaceTecAPIUserAgentString(""));
-        Log.d("FaceTec EndPoint", "apiKey JP2ZFzsEpJIaFI02Ww7Xfq2rqConf3Bi");
+        Log.d("FaceTec EndPoint", "X-Device-Key " + licenseKey);
+        Log.d("FaceTec EndPoint", "User-Agent " + FaceTecSDK.createFaceTecAPIUserAgentString(""));
+        Log.d("FaceTec EndPoint", "apiKey" + this.apiKey);
 
         okhttp3.Request request = new okhttp3.Request.Builder()
                 .header("X-Device-Key", licenseKey)
                 .header("User-Agent", FaceTecSDK.createFaceTecAPIUserAgentString(""))
-                .header("apiKey", "JP2ZFzsEpJIaFI02Ww7Xfq2rqConf3Bi")
+                .header("apiKey", this.apiKey)
                 .url(zoomServerBaseURL + "/session-token")
                 .get()
                 .build();
@@ -365,88 +364,88 @@ public class FacetecFlutterPluginDemoPlugin implements FlutterPlugin, MethodCall
                 pendingCallbackContext.success("error" + this.latestProcessor.getErrorMessage());
             }
         } else {
-                base64Image = latestProcessor.getBase64Images();
-                if (latestProcessor.getDocumentData().equals("")) {
-                    JSONObject scannedDocumentDataResult = new JSONObject();
+            base64Image = latestProcessor.getBase64Images();
+            if (latestProcessor.getDocumentData().equals("")) {
+                JSONObject scannedDocumentDataResult = new JSONObject();
 
-                    try {
-                        scannedDocumentDataResult.put("externalDatabaseRefID",
-                                latestProcessor.getLastExternalRefId()
-                        );
+                try {
+                    scannedDocumentDataResult.put("externalDatabaseRefID",
+                            latestProcessor.getLastExternalRefId()
+                    );
+                    scannedDocumentDataResult.put(
+                            "documentData",
+                            latestProcessor.getDocumentData()
+                    );
+                    if (latestProcessor.getBase64Images().length >= 1) {
                         scannedDocumentDataResult.put(
-                                "documentData",
-                                latestProcessor.getDocumentData()
+                                "frontIdImage",
+                                latestProcessor.getBase64Images()[0]
                         );
-                        if (latestProcessor.getBase64Images().length >= 1) {
-                            scannedDocumentDataResult.put(
-                                    "frontIdImage",
-                                    latestProcessor.getBase64Images()[0]
-                            );
-                        }
-                        if (latestProcessor.getBase64Images().length >= 2) {
-                            scannedDocumentDataResult.put(
-                                    "backIdImage",
-                                    latestProcessor.getBase64Images()[1]
-                            );
-                        }
-                        if (latestProcessor.getBase64Images().length >= 3) {
-                            scannedDocumentDataResult.put(
-                                    "selfieImage",
-                                    latestProcessor.getBase64Images()[2]
-                            );
-                        }
-                        if (latestProcessor.getBase64Images().length >= 4) {
-                            scannedDocumentDataResult.put(
-                                    "faceScan",
-                                    latestProcessor.getBase64Images()[3]
-                            );
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
                     }
-                    latestProcessor = null;
-                    pendingCallbackContext.success(scannedDocumentDataResult.toString());
-
-                } else {
-                    JSONObject scannedDocumentDataResult = new JSONObject();
-                    try {
-                        scannedDocumentDataResult.put("externalDatabaseRefID",
-                                latestProcessor.getLastExternalRefId()
-                        );
+                    if (latestProcessor.getBase64Images().length >= 2) {
                         scannedDocumentDataResult.put(
-                                "documentData",
-                                latestProcessor.getDocumentData()
+                                "backIdImage",
+                                latestProcessor.getBase64Images()[1]
                         );
-                        if (latestProcessor.getBase64Images().length >= 1) {
-                            scannedDocumentDataResult.put(
-                                    "frontIdImage",
-                                    latestProcessor.getBase64Images()[0]
-                            );
-                        }
-                        if (latestProcessor.getBase64Images().length >= 2) {
-                            scannedDocumentDataResult.put(
-                                    "backIdImage",
-                                    latestProcessor.getBase64Images()[1]
-                            );
-                        }
-                        if (latestProcessor.getBase64Images().length >= 3) {
-                            scannedDocumentDataResult.put(
-                                    "selfieImage",
-                                    latestProcessor.getBase64Images()[2]
-                            );
-                        }
-                        if (latestProcessor.getBase64Images().length >= 4) {
-                            scannedDocumentDataResult.put(
-                                    "faceScan",
-                                    latestProcessor.getBase64Images()[3]
-                            );
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
                     }
-                    latestProcessor = null;
-                    pendingCallbackContext.success(scannedDocumentDataResult.toString());
+                    if (latestProcessor.getBase64Images().length >= 3) {
+                        scannedDocumentDataResult.put(
+                                "selfieImage",
+                                latestProcessor.getBase64Images()[2]
+                        );
+                    }
+                    if (latestProcessor.getBase64Images().length >= 4) {
+                        scannedDocumentDataResult.put(
+                                "faceScan",
+                                latestProcessor.getBase64Images()[3]
+                        );
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
+                latestProcessor = null;
+                pendingCallbackContext.success(scannedDocumentDataResult.toString());
+
+            } else {
+                JSONObject scannedDocumentDataResult = new JSONObject();
+                try {
+                    scannedDocumentDataResult.put("externalDatabaseRefID",
+                            latestProcessor.getLastExternalRefId()
+                    );
+                    scannedDocumentDataResult.put(
+                            "documentData",
+                            latestProcessor.getDocumentData()
+                    );
+                    if (latestProcessor.getBase64Images().length >= 1) {
+                        scannedDocumentDataResult.put(
+                                "frontIdImage",
+                                latestProcessor.getBase64Images()[0]
+                        );
+                    }
+                    if (latestProcessor.getBase64Images().length >= 2) {
+                        scannedDocumentDataResult.put(
+                                "backIdImage",
+                                latestProcessor.getBase64Images()[1]
+                        );
+                    }
+                    if (latestProcessor.getBase64Images().length >= 3) {
+                        scannedDocumentDataResult.put(
+                                "selfieImage",
+                                latestProcessor.getBase64Images()[2]
+                        );
+                    }
+                    if (latestProcessor.getBase64Images().length >= 4) {
+                        scannedDocumentDataResult.put(
+                                "faceScan",
+                                latestProcessor.getBase64Images()[3]
+                        );
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                latestProcessor = null;
+                pendingCallbackContext.success(scannedDocumentDataResult.toString());
+            }
 
         }
         return true;

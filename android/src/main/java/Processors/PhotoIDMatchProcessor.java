@@ -49,12 +49,14 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
     //private final FaceTecSessionActivity sampleAppActivity;
     public String errorMessage = "";
     private String langCode="ar";
+    private String apiKey ="";
 
-    public PhotoIDMatchProcessor(String sessionToken, Context context, String deviceKeyId, String baseUrl, String langCode) {
+    public PhotoIDMatchProcessor(String sessionToken, Context context, String deviceKeyId, String baseUrl, String langCode, String apiKey) {
         this.deviceKeyId = deviceKeyId;
         this.baseUrl = baseUrl;
         this.base64Image = new String[]{"", "", "",""};
         this.langCode = langCode;
+        this.apiKey = apiKey;
 
         // In v9.2.2+, configure the messages that will be displayed to the User in each of the possible cases.
         // Based on the internal processing and decision logic about how the flow gets advanced, the FaceTec SDK will use the appropriate, configured message.
@@ -142,7 +144,7 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
                 .header("X-Device-Key", deviceKeyId)
                 .header("User-Agent", FaceTecSDK.createFaceTecAPIUserAgentString(sessionResult.getSessionId()))
                 .header("X-User-Agent", FaceTecSDK.createFaceTecAPIUserAgentString(sessionResult.getSessionId()))
-                .header("apiKey", "JP2ZFzsEpJIaFI02Ww7Xfq2rqConf3Bi")
+                .header("apiKey", this.apiKey)
 
                 //
                 // Part 7:  Demonstrates updating the Progress Bar based on the progress event.
@@ -278,7 +280,7 @@ public class PhotoIDMatchProcessor extends Processor implements FaceTecFaceScanP
                 .header("X-Device-Key", deviceKeyId)
                 .header("User-Agent", FaceTecSDK.createFaceTecAPIUserAgentString(idScanResult.getSessionId()))
                 .header("X-User-Agent", FaceTecSDK.createFaceTecAPIUserAgentString(idScanResult.getSessionId()))
-                .header("apiKey", "JP2ZFzsEpJIaFI02Ww7Xfq2rqConf3Bi")
+                .header("apiKey", this.apiKey)
 
                 //
                 // Part 14:  Demonstrates updating the Progress Bar based on the progress event.
