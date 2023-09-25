@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter/services.dart';
 
@@ -27,21 +28,22 @@ class FacetecFlutterPluginDemo {
   }
 
   /// This function needs to be called before using any FaceTec SDK functionality
-  static Future<String> initialize(
-      {
-       required String licenseKey,
-        required bool productionMode,
-        required String productionKeyText,
-        required String langCode,
-      }) async {
+  static Future<String> initialize({
+    required String licenseKey,
+    required bool productionMode,
+    required String productionKeyText,
+    required String langCode,
+    required String apiKey,
+  }) async {
     final String result = await _channel.invokeMethod('initialize', {
-      'appToken': licenseKey,
+      'licenseKey': licenseKey,
       'productionMode': productionMode,
       'productionKeyText': productionKeyText,
-      "langCode": langCode
+      "langCode": langCode,
+      "apiKey": apiKey
     });
-    print("initialze call back");
-    print(result);
+    log("initialize call back");
+    log(result);
     return result;
   }
 
